@@ -6,113 +6,27 @@
 <meta name="theme-color" content="#f7f3ed">
 <title>匈牙利 · 克罗地亚 · 奥地利｜旅行计划</title>
 <style>
-:root{
-  --bg:#f6f3ee; --card:#fffdf9; --ink:#252321; --muted:#817a72;
-  --line:#e8e1d8; --accent:#b65d45; --accent2:#244f4a;
-  --gold:#b58a4a; --shadow:0 12px 30px rgba(44,34,25,.08);
-  --nav:72px; --radius:22px;
-}
-*{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC",Segoe UI,sans-serif}
-body{padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom) + 16px)}
-button,input,select{font:inherit} button{cursor:pointer}
-a{color:inherit}
-.app{max-width:760px;margin:auto}
-.page{display:none;min-height:100vh;padding:20px 16px 30px}
-.page.active{display:block}
-.hero{position:relative;overflow:hidden;border-radius:30px;padding:28px 22px;color:#fff;background:
-linear-gradient(135deg,rgba(35,68,65,.94),rgba(145,74,57,.82)),
-radial-gradient(circle at 80% 10%,#e6b36c,transparent 34%);box-shadow:var(--shadow)}
-.hero:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-55px;top:-60px}
-.kicker{font-size:12px;letter-spacing:.12em;opacity:.78;text-transform:uppercase}
-h1{font-size:31px;line-height:1.18;margin:10px 0 10px;letter-spacing:-.03em}
-.hero p{margin:0;color:rgba(255,255,255,.8);font-size:14px}
-.hero-stats{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
-.pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);padding:8px 11px;border-radius:999px;font-size:12px}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin:25px 2px 12px}
-.section-head h2{font-size:19px;margin:0;letter-spacing:-.02em}
-.section-head span{font-size:12px;color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-.countdown{padding:16px;margin-bottom:12px;background:#fff8ed;border-color:#ead8b9}
-.countdown strong{display:block;font-size:22px;margin-top:3px}
-.countdown small{color:var(--muted)}
-.carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;scrollbar-width:none}
-.carousel::-webkit-scrollbar{display:none}
-.transit{min-width:88%;scroll-snap-align:start;padding:18px}
-.transit-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-.route{display:flex;align-items:center;gap:10px;margin:15px 0}
-.code{font-size:28px;font-weight:750;letter-spacing:-.04em}
-.city{font-size:12px;color:var(--muted);margin-top:2px}
-.arrow{flex:1;text-align:center;color:var(--accent);font-size:18px}
-.transit-time{display:flex;justify-content:space-between;font-size:13px;border-top:1px solid var(--line);padding-top:12px}
-.meta{font-size:11px;color:var(--muted);margin-top:12px}
-.dots{text-align:center;color:var(--muted);font-size:12px;padding:8px}
-.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.quick{padding:17px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;box-shadow:var(--shadow)}
-.quick b{display:block;margin-bottom:6px} .quick small{color:var(--muted)}
-.notice{padding:14px 16px;margin-top:12px;border-radius:18px;background:#f0f5f2;border:1px solid #d6e5df;font-size:13px}
-.date-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
-.date-strip::-webkit-scrollbar{display:none}
-.day-btn{min-width:78px;border:1px solid var(--line);background:var(--card);border-radius:16px;padding:10px 8px;text-align:center}
-.day-btn.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
-.day-btn b{display:block;font-size:14px} .day-btn small{font-size:11px;opacity:.75}
-.route-line{height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:99px;margin:0 12px 16px}
-.sheet{position:fixed;inset:0;background:rgba(25,22,20,.38);display:none;align-items:flex-end;z-index:20}
-.sheet.open{display:flex}
-.sheet-panel{background:var(--bg);width:100%;max-height:90vh;border-radius:26px 26px 0 0;overflow:auto;padding:12px 16px 30px;animation:up .2s ease}
-@keyframes up{from{transform:translateY(20px);opacity:.6}to{transform:none;opacity:1}}
-.grab{width:42px;height:4px;background:#d3cbc1;border-radius:99px;margin:0 auto 14px}
-.sheet-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.close{border:0;background:#eae4dc;border-radius:50%;width:34px;height:34px}
-.timeline{margin:20px 0 0 8px;border-left:2px solid #ddd4ca;padding-left:20px}
-.event{position:relative;padding:0 0 20px}
-.event:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);left:-26px;top:5px;border:3px solid var(--bg)}
-.event-time{font-size:11px;color:var(--accent);font-weight:700}
-.event h3{font-size:15px;margin:4px 0 5px}
-.event p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
-.tag{display:inline-block;font-size:10px;padding:4px 7px;border-radius:999px;background:#fff0e6;color:#a14f36;margin-top:6px}
-.map{display:inline-block;font-size:11px;color:var(--accent2);margin-top:7px;text-decoration:none}
-.hotel-mini{padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--card);font-size:12px}
-.drive-card{padding:18px}
-.drive-route{display:grid;grid-template-columns:12px 1fr;gap:12px}
-.track{position:relative;margin-top:8px;border-left:2px dashed #c8beb3;height:72px}
-.track:before,.track:after{content:"";position:absolute;left:-6px;width:10px;height:10px;border-radius:50%;background:var(--accent2)}
-.track:after{bottom:0;background:var(--accent)}
-.check-group{padding:16px;margin-top:12px}
-.check-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
-.check-row:last-child{border-bottom:0}
-.check-row input:checked+span{text-decoration:line-through;color:#aaa}
-.collapsible summary{cursor:pointer;padding:16px;font-weight:700}
-.costs{padding:0 16px 16px;font-size:13px}
-.cost-row{display:flex;justify-content:space-between;padding:8px 0;color:var(--muted)}
-.form{padding:16px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-input,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px;outline:none}
-input:focus,select:focus{border-color:var(--accent)}
-.primary{border:0;background:var(--accent2);color:white;border-radius:13px;padding:11px 14px;font-weight:700}
-.secondary{border:1px solid var(--line);background:var(--card);border-radius:13px;padding:10px 12px}
-.full{width:100%;margin-top:10px}
-.list{margin-top:10px}
-.item{display:flex;align-items:center;gap:10px;padding:13px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
-.item .grow{flex:1}
-.item.done .grow{text-decoration:line-through;color:#aaa}
-.del{border:0;background:none;color:#b7afa6;font-size:18px}
-.expense{padding:14px;margin-bottom:8px}
-.exp-top{display:flex;justify-content:space-between;font-weight:700}
-.exp-sub{color:var(--muted);font-size:11px;margin-top:5px;line-height:1.5}
-.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.metric{padding:15px;background:var(--card);border:1px solid var(--line);border-radius:16px}
-.metric small{color:var(--muted)} .metric b{display:block;font-size:21px;margin-top:5px}
-.nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--nav) + env(safe-area-inset-bottom));padding:8px 8px env(safe-area-inset-bottom);background:rgba(255,253,249,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);z-index:10;display:flex;justify-content:center}
-.nav-inner{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(5,1fr)}
-.nav button{border:0;background:none;color:#918a82;font-size:10px;padding:5px 2px}
-.nav button span{display:block;font-size:20px;margin-bottom:2px}
-.nav button.active{color:var(--accent2);font-weight:700}
-.muted{color:var(--muted);font-size:12px}
-.empty{padding:24px;text-align:center;color:var(--muted)}
-@media(min-width:600px){.page{padding-top:32px} .transit{min-width:54%}}
+:root{--bg:#f3f5f1;--paper:#fbfcf8;--ink:#10262d;--muted:#77858a;--line:#dfe5e1;--teal:#1c7079;--deep:#102a32;--soft:#e8f0ed;--accent:#b7c9bf;--nav:68px;--r:26px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Helvetica Neue",Arial,sans-serif;padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom) + 12px)}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}.app{max-width:760px;margin:auto}.topbar{position:sticky;top:0;z-index:15;background:rgba(243,245,241,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.topbar-inner{max-width:760px;margin:auto;min-height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 18px}.brand{font-size:12px;letter-spacing:.14em;font-weight:900;white-space:nowrap}.brand span{color:#8b979b;font-weight:600}.toplinks{display:flex;gap:14px;font-size:12px;color:#647276;overflow:auto;scrollbar-width:none}.toplinks::-webkit-scrollbar{display:none}.toplinks button{border:0;background:none;color:inherit;padding:8px 0;white-space:nowrap}.toplinks button.active{color:var(--teal);font-weight:900}
+.page{display:none;min-height:calc(100vh - 58px);padding:24px 18px 34px}.page.active{display:block}.eyebrow{font-size:11px;letter-spacing:.19em;color:var(--teal);font-weight:900;text-transform:uppercase;margin-bottom:9px}.page-title{font-size:34px;line-height:1.02;letter-spacing:-.055em;margin:0;font-weight:900}.page-sub{margin:9px 0 0;color:var(--muted);font-size:13px}.title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:10px 0 17px}.days-count{font-size:11px;letter-spacing:.11em;color:#718085;font-weight:800;white-space:nowrap}.section-head{display:flex;justify-content:space-between;align-items:end;margin:30px 0 12px}.section-head h2{font-size:27px;line-height:1;margin:0;letter-spacing:-.055em;font-weight:900}.section-head span{font-size:10px;color:#7b888c;letter-spacing:.12em;font-weight:800}.card{background:rgba(251,252,248,.86);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 30px rgba(16,42,50,.045)}
+.hero{padding:7px 4px 10px;position:relative}.hero:after{content:"";display:block;height:1px;background:var(--line);margin:25px -4px 0}.hero h1{font-size:43px;line-height:.96;letter-spacing:-.075em;margin:0;max-width:95%;font-weight:950}.hero p{font-size:15px;margin:15px 0 0;color:#263a3f}.hero-route{display:flex;align-items:center;gap:9px;margin-top:20px;font-size:11px;color:#617176}.hero-route i{width:7px;height:7px;border-radius:50%;background:var(--teal);display:block}.hero-route b{font-size:11px;color:var(--ink)}.hero-route em{height:1px;background:#aab9b3;flex:1;position:relative}.hero-route em:after{content:"›";position:absolute;right:-2px;top:-8px;color:var(--teal);font-style:normal}.hero-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.pill{border:1px solid #d8e0dc;background:#edf2ef;padding:7px 10px;border-radius:999px;font-size:10px;color:#53666b}
+.flight-card{background:var(--deep);color:white;border:0;border-radius:29px;padding:20px;box-shadow:0 18px 38px rgba(16,42,50,.16);min-height:286px;position:relative;overflow:hidden}.flight-card:after{content:"";position:absolute;width:150px;height:150px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-70px;bottom:-70px}.flight-head{display:flex;justify-content:space-between;color:#a5b8bc;font-size:10px;letter-spacing:.13em}.flight-head b{color:#fff;font-size:11px}.flight-airline{color:#90a9ae;font-size:11px;margin-top:7px}.flight-route{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:8px;align-items:end;margin:28px 0 15px}.airport-code{font-size:35px;line-height:1;font-weight:950;letter-spacing:-.065em}.airport-city{font-size:10px;color:#a8b9bc;margin-top:6px}.flight-mid{text-align:center}.flight-arrow{font-size:25px;color:#80b5ba}.flight-no{font-size:10px;color:#8fa6ab;margin-top:2px}.flight-time{font-size:11px;color:#bdc9cb;display:flex;justify-content:space-between}.flight-divider{border-top:1px solid rgba(255,255,255,.14);margin:18px 0 14px}.flight-bottom{display:flex;justify-content:space-between;align-items:end}.flight-bottom small{color:#9fb1b5;font-size:10px}.flight-bottom strong{display:block;font-size:25px;letter-spacing:-.035em;margin-top:3px}.carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 4px;scrollbar-width:none}.carousel::-webkit-scrollbar{display:none}.transit{min-width:88%;scroll-snap-align:start}.dots{text-align:center;color:#9aa7aa;font-size:10px;padding:8px}.dots b{color:var(--teal)}
+.next-card{padding:16px 17px;position:relative;overflow:hidden}.next-card .kicker{font-size:10px;color:var(--teal);letter-spacing:.12em;font-weight:900}.next-card strong{display:block;font-size:25px;letter-spacing:-.04em;margin-top:5px}.next-card .next-route{margin-top:8px;color:var(--muted);font-size:11px}.next-card .arrow-mark{position:absolute;right:16px;top:15px;font-size:25px;color:#9aaba7}.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick{padding:15px;text-align:left;min-height:86px;position:relative;transition:transform .15s ease}.quick:active{transform:scale(.98)}.quick b{font-size:14px}.quick small{display:block;margin-top:5px}.quick .qmark{position:absolute;right:13px;bottom:11px;color:var(--teal);font-size:17px}
+.route-map{position:relative;overflow:hidden;border-radius:29px;border:1px solid #d9e1da;background:#e9eee7;min-height:455px;box-shadow:0 12px 30px rgba(16,42,50,.05)}.route-map:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 42%)}.map-paper{position:absolute;inset:0;background-image:radial-gradient(#c8d1c9 1px,transparent 1px);background-size:16px 16px;opacity:.45}.map-mountain{position:absolute;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:44px solid #d2dbd1;opacity:.7}.m1{left:54px;top:155px}.m2{left:116px;top:112px;transform:scale(.7)}.m3{right:55px;top:174px;transform:scale(1.15)}.m4{right:95px;bottom:120px;transform:scale(.8)}.map-lake{position:absolute;background:#b9d8df;border-radius:58% 42% 55% 45%;opacity:.82}.lake1{width:108px;height:44px;left:18px;top:90px;transform:rotate(22deg)}.lake2{width:92px;height:35px;right:24px;top:78px;transform:rotate(-20deg)}.lake3{width:154px;height:65px;left:104px;bottom:45px;transform:rotate(12deg)}.route-svg{position:absolute;inset:0;width:100%;height:100%}.map-label{position:absolute;font-size:10px;font-weight:800;color:#354a4e;background:rgba(251,252,248,.76);padding:5px 7px;border-radius:9px;border:1px solid rgba(210,220,214,.7)}.map-label.budapest{top:56px;right:47px}.map-label.vienna{top:45px;left:50px}.map-label.split{top:206px;left:48px}.map-label.dubrovnik{bottom:74px;left:39px}.map-caption{position:absolute;left:16px;bottom:15px;font-size:10px;color:#667477;background:rgba(251,252,248,.78);padding:7px 9px;border-radius:10px}.map-note{font-size:10px;color:#7b8789;line-height:1.5;margin:9px 4px 0}
+.date-strip{display:flex;gap:5px;overflow-x:auto;padding:0 0 8px;scrollbar-width:none}.date-strip::-webkit-scrollbar{display:none}.day-btn{min-width:61px;border:0;border-bottom:2px solid transparent;background:transparent;padding:8px 4px 10px;text-align:left;color:#748286}.day-btn b{display:block;font-size:11px}.day-btn small{display:block;font-size:9px;margin-top:4px;color:#a0aaac}.day-btn.active{color:var(--teal);border-bottom-color:var(--teal)}.day-btn.active small{color:var(--teal)}.day-overview{padding:17px 16px;background:transparent;border:0;box-shadow:none;border-bottom:1px solid var(--line);border-radius:0}.day-overview .city{font-size:10px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;font-weight:900}.day-overview h3{font-size:21px;line-height:1.18;margin:6px 0}.day-overview p{font-size:11px;color:#758287;line-height:1.5;margin:0}.day-actions{display:flex;gap:8px;margin-top:13px}.primary{border:0;background:var(--deep);color:#fff;border-radius:14px;padding:11px 14px;font-weight:850}.secondary{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px}.full{width:100%}
+.timeline{margin:17px 0 0 31px;border-left:1px solid #cdd8d3;padding-left:19px}.event{position:relative;padding:0 0 23px}.event:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);left:-25px;top:3px}.event:after{content:"";position:absolute;left:-21px;top:15px;height:calc(100% - 10px);border-left:1px dashed #d9e0dc}.event:last-child:after{display:none}.event-time{font-size:10px;color:#7c8a8e;letter-spacing:.04em} .event-time.approx{color:#4f7f84}.event h3{font-size:14px;line-height:1.38;margin:4px 0}.event p{margin:0;color:var(--muted);font-size:11px;line-height:1.5}.tag{display:inline-block;font-size:9px;padding:5px 8px;border-radius:999px;background:#edf4f1;color:#2b666e;margin-top:6px}.map{display:inline-block;font-size:10px;color:var(--teal);margin-top:7px;text-decoration:none}.booking-list .item{border:0;border-bottom:1px solid var(--line);background:transparent;padding:14px 0}.booking-list .item:last-child{border-bottom:0}
+.drive-hero{background:var(--deep);color:#fff;border:0;border-radius:29px;padding:21px;box-shadow:0 18px 38px rgba(16,42,50,.16);position:relative;overflow:hidden}.drive-hero:after{content:"4×4";position:absolute;right:-8px;top:18px;font-size:72px;line-height:1;font-weight:950;color:rgba(255,255,255,.05);letter-spacing:-.08em}.drive-hero h3{font-size:21px;line-height:1.2;margin:6px 0}.drive-hero .muted{color:#a8b9bc}.drive-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:23px}.drive-meta small{color:#91a8ad;font-size:9px;letter-spacing:.12em}.drive-meta b{display:block;margin-top:5px;font-size:13px}.drive-total{display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(255,255,255,.16);margin-top:20px;padding-top:15px;font-size:11px}.drive-total strong{font-size:20px}.drive-tabs{display:flex;border-bottom:1px solid var(--line);margin-top:18px}.drive-tabs button{flex:1;border:0;background:none;padding:12px 4px;font-size:11px;color:#7a878a}.drive-tabs button.active{color:var(--teal);font-weight:900;border-bottom:2px solid var(--teal)}.drive-panel{padding:13px 16px}.check-list{margin-top:3px}.check-row{display:flex;gap:11px;align-items:center;padding:14px 2px;border-bottom:1px solid var(--line);font-size:12px}.check-row:last-child{border-bottom:0}.check-row input{width:21px;height:21px;accent-color:var(--teal)}.check-row input:checked+span{text-decoration:line-through;color:#9aa3a4}.check-help{font-size:10px;color:#8a9699;margin:13px 0;line-height:1.6}.add-row{display:flex;gap:8px}.add-row input{flex:1}.form{padding:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:11px;outline:none}input:focus,select:focus{border-color:var(--teal)}
+.expense{padding:14px;margin-bottom:8px}.exp-top{display:flex;justify-content:space-between;font-weight:750}.exp-sub{color:var(--muted);font-size:10px;margin-top:5px;line-height:1.5}.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:15px;background:var(--paper);border:1px solid var(--line);border-radius:17px}.metric small{color:var(--muted);font-size:10px}.metric b{display:block;font-size:20px;margin-top:5px}.notice{padding:12px 14px;margin-top:12px;border-radius:15px;background:#edf3ef;border:1px solid #dbe5df;font-size:10px;color:#647276;line-height:1.55}.muted{color:var(--muted);font-size:11px}.empty{padding:24px;text-align:center;color:var(--muted)}
+.sheet{position:fixed;inset:0;background:rgba(16,31,35,.38);display:none;align-items:flex-end;z-index:30}.sheet.open{display:flex}.sheet-panel{background:var(--bg);width:100%;max-width:760px;margin:auto;max-height:90vh;border-radius:29px 29px 0 0;overflow:auto;padding:10px 18px 30px;animation:up .2s ease}@keyframes up{from{transform:translateY(20px);opacity:.6}to{transform:none;opacity:1}}.grab{width:42px;height:4px;background:#c9d1ce;border-radius:99px;margin:0 auto 14px}.sheet-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.close{border:0;background:#e4ebe7;border-radius:50%;width:34px;height:34px}
+.nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--nav) + env(safe-area-inset-bottom));padding:6px 8px env(safe-area-inset-bottom);background:rgba(251,252,248,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line);z-index:20;display:flex;justify-content:center}.nav-inner{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(5,1fr)}.nav button{border:0;background:none;color:#8a9698;font-size:9px;padding:5px 2px;position:relative}.nav button span{display:block;font-size:17px;margin-bottom:2px}.nav button.active{color:var(--teal);font-weight:900}.nav button.active:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:22px;height:2px;background:var(--teal);border-radius:99px}
+@media(min-width:600px){.page{padding-left:26px;padding-right:26px}.hero h1{font-size:54px}.flight-card{min-height:305px}.route-map{min-height:520px}}
 </style>
 </head>
 <body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">CH / EU <span>· 2026</span></div><div class="toplinks">
+<button data-top="home" onclick="showTab('home')">航班</button><button data-top="itinerary" onclick="showTab('itinerary')">路线</button><button data-top="itinerary" onclick="showTab('itinerary')">行程</button><button data-top="driving" onclick="showTab('driving')">自驾</button><button data-top="checklist" onclick="showTab('checklist')">Todo</button>
+</div></div></header>
 <div class="app">
   <main id="home" class="page active"></main>
   <main id="itinerary" class="page"></main>
@@ -156,6 +70,7 @@ function maps(q) {
 function showTab(id) {
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
   document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  document.querySelectorAll('.toplinks button').forEach((b,i)=>b.classList.toggle('active',b.dataset.top===id));
   window.scrollTo({top:0,behavior:'smooth'});
   if(id==='checklist') renderChecklist();
   if(id==='expenses') renderExpenses();
@@ -191,69 +106,107 @@ function transitCard(x) {
 }
 function renderHome() {
   const next=firstNext();
-  // 统一交通数据字段，避免 transitCard 读取不到 start/end
-  const cards=TRIP.flights.map(f=>({
-      ...f, kind:'flight', title:f.flight_no,
-      start:f.datetime_start, end:f.datetime_end
-    }))
-    .concat(TRIP.trains.map(f=>({
-      ...f, kind:'train', title:'MÁV '+f.train_no,
-      start:f.datetime_start, end:f.datetime_end
-    })))
-    .concat(TRIP.ferries.map(f=>({
-      ...f, kind:'ferry', title:'Split ↔ Hvar',
-      start:f.datetime_start, end:f.datetime_end,
-      from:{city:'Split',code:'SPU'},
-      to:{city:'Hvar',code:'HVR'}
-    })))
-    .concat(TRIP.car_rentals.map(f=>({
-      ...f, kind:'car', title:'Sixt 租车',
-      start:f.datetime_start, end:f.datetime_end,
-      from:{city:'Split',code:'Split'},
-      to:{city:'Dubrovnik',code:'Dubrovnik'}
-    })));
+  const flights=TRIP.flights.map(f=>({...f,kind:'flight',title:f.flight_no,start:f.datetime_start,end:f.datetime_end}));
   if(!next) return;
   document.getElementById('home').innerHTML=`
     <section class="hero">
-      <div class="kicker">TRAVEL PLAN · 2026</div>
-      <h1>匈牙利 · 克罗地亚 · 奥地利</h1>
-      <p>2026.09.30 — 2026.10.08 · 8天8晚</p>
-      <div class="hero-stats"><span class="pill">上海 → 布达佩斯</span><span class="pill">斯普利特 → 杜布罗夫尼克</span><span class="pill">维也纳 → 上海</span></div>
+      <div class="eyebrow">HUNGARY — CROATIA — AUSTRIA</div>
+      <h1>匈牙利 / 克罗地亚 / 奥地利</h1>
+      <p>9月30日 — 10月8日 · 8天</p>
+      <div class="hero-route"><i></i><b>上海</b><em></em><b>布达佩斯</b><em></em><b>Split</b><em></em><b>Dubrovnik</b><em></em><b>维也纳</b><i></i></div>
+      <div class="hero-meta"><span class="pill">上海 → 布达佩斯</span><span class="pill">Split → Dubrovnik</span><span class="pill">Vienna → 上海</span></div>
     </section>
-    <div class="section-head"><h2>✈️ 行程航班</h2><span>${cards.length} 段交通</span></div>
-    <div class="card countdown"><small>下一程 · 自动按时间判断</small><strong id="nextCountdown">${countdownText(next.start)}</strong><span class="muted">${icons[next.kind]||''} ${next.title} · ${next.from.city} → ${next.to.city}</span></div>
-    <div class="carousel">${cards.map(transitCard).join('')}</div>
-    <div class="dots">● ○ ○ ○</div>
-    <div class="section-head"><h2>快捷入口</h2></div>
+    <div class="section-head"><h2>航班行程</h2><span>BOARDING</span></div>
+    <div class="carousel">${flights.map((x,i)=>flightCard(x,i,flights.length)).join('')}</div>
+    <div class="dots"><b>━</b> ━ ·</div>
+    <div class="section-head"><h2>下一程</h2><span>UP NEXT</span></div>
+    <div class="card next-card"><div class="kicker">${next.kind==='flight'?'FLIGHT':next.kind.toUpperCase()}</div><strong id="nextCountdown">${countdownText(next.start)}</strong><div class="next-route">${next.from.city} → ${next.to.city} · ${next.start?.slice(0,16)||''}</div><div class="arrow-mark">↗</div></div>
+    <div class="section-head"><h2>快捷入口</h2><span>EXPLORE</span></div>
     <div class="quick-grid">
-      <button class="quick" onclick="showTab('itinerary')"><b>🗓 今日行程</b><small>按日期查看活动与购票提醒</small></button>
-      <button class="quick" onclick="showTab('driving')"><b>🚗 自驾提醒</b><small>取还车、检查项与费用</small></button>
-      <button class="quick" onclick="showTab('checklist')"><b>✓ 打包清单</b><small>仅自己可见，本地保存</small></button>
-      <button class="quick" onclick="showTab('expenses')"><b>¥ 记一笔</b><small>共享账本与 AA 结算</small></button>
+      <button class="card quick" onclick="showTab('itinerary')"><b>行程</b><small class="muted">Day 0 — Day 8</small><span class="qmark">↗</span></button>
+      <button class="card quick" onclick="showTab('driving')"><b>自驾</b><small class="muted">取车 / 还车</small><span class="qmark">↗</span></button>
+      <button class="card quick" onclick="showTab('checklist')"><b>Todo</b><small class="muted">出发前准备</small><span class="qmark">↗</span></button>
+      <button class="card quick" onclick="showTab('expenses')"><b>账本</b><small class="muted">记账 / AA</small><span class="qmark">↗</span></button>
     </div>
-    <div class="notice">⚠️ 页面已隐藏护照号、租车安全码等敏感信息，适合用于朋友分享。原始预订凭证请另行保存。</div>
-  `;
+    <div class="notice">⚠️ 分享版已隐藏护照号、租车安全码等敏感信息。</div>`;
   setInterval(()=>{const el=document.getElementById('nextCountdown');if(el)el.textContent=countdownText(next.start)},30000);
 }
+
+function flightCard(x,i,total){
+ const f=x.from||{},t=x.to||{};
+ return `<article class="flight-card">
+   <div class="flight-head"><span>FLIGHT 0${i+1} / 0${total}</span><b>${x.flight_no||x.title}</b></div>
+   <div class="flight-airline">${x.airline||'国际航班'}</div>
+   <div class="flight-route">
+    <div><div class="airport-code">${f.code||'—'}</div><div class="airport-city">${f.city||''}</div></div>
+    <div class="flight-mid"><div class="flight-arrow">→</div><div class="flight-no">${x.flight_no||''}</div></div>
+    <div style="text-align:right"><div class="airport-code">${t.code||'—'}</div><div class="airport-city">${t.city||''}</div></div>
+   </div>
+   <div class="flight-time"><span>${x.start?.slice(11,16)||''} 出发</span><span>${x.end?.slice(11,16)||''} 抵达</span></div>
+   <div class="flight-divider"></div>
+   <div class="flight-bottom"><div><small>距离起飞还剩</small><strong>${countdownText(x.start).replace('小时','h').replace('天','d')}</strong></div><small>${fmtDate(x.start)}</small></div>
+ </article>`;
+}
+
 let selectedDay = 0;
+function approximateTime(a, idx, activities) {
+  if (a.time) return {text:a.time, approximate:false};
+  const title=(a.title||'').toLowerCase();
+  if (/日出|早餐|早起/.test(title)) return {text:'清晨 06:30–09:00', approximate:true};
+  if (/午饭|午餐|brunch|早午饭/.test(title)) return {text:'中午 12:00–14:00', approximate:true};
+  if (/晚餐|晚饭/.test(title)) return {text:'傍晚 17:30–20:00', approximate:true};
+  if (/傍晚/.test(title)) return {text:'傍晚 17:00–19:00', approximate:true};
+  if (/晚上|夜景|夜间/.test(title)) return {text:'晚间 19:00–22:00', approximate:true};
+
+  const explicit=activities.map((x,i)=>({i,time:x.time})).filter(x=>x.time);
+  const prev=[...explicit].reverse().find(x=>x.i<idx);
+  const next=explicit.find(x=>x.i>idx);
+  const hour = t => Number(String(t).slice(0,2));
+  let h=null;
+  if (prev && next) {
+    const ph=hour(prev.time), nh=hour(next.time);
+    h = ph + (nh-ph)/2;
+  } else if (prev) h=hour(prev.time)+1;
+  else if (next) h=hour(next.time)-1;
+
+  if (h!==null) {
+    if (h<9) return {text:'上午 08:00–10:00', approximate:true};
+    if (h<12) return {text:'上午 09:00–12:00', approximate:true};
+    if (h<14) return {text:'中午 12:00–14:00', approximate:true};
+    if (h<17) return {text:'下午 14:00–17:00', approximate:true};
+    if (h<19) return {text:'傍晚 17:00–19:00', approximate:true};
+    return {text:'晚间 19:00–22:00', approximate:true};
+  }
+
+  if (/入住|办理入住|check.?in/.test(title)) return {text:'下午 14:00–17:00', approximate:true};
+  if (/自驾|沿海公路|南下|返回|休闲|自由活动/.test(title)) return {text:'下午 14:00–17:00', approximate:true};
+  return {text:'时间待定 · 可按当天节奏调整', approximate:true};
+}
+
 function renderItinerary() {
-  const days=TRIP.daily_itinerary;
-  const d=days[selectedDay];
+  const days=TRIP.daily_itinerary; const d=days[selectedDay];
   document.getElementById('itinerary').innerHTML=`
-    <div class="section-head"><h2>🗓 行程</h2><span>Day 0 — Day 8</span></div>
-    <div class="date-strip">${days.map((x,i)=>`<button class="day-btn ${i===selectedDay?'active':''}" onclick="selectDay(${i})"><b>${x.day_label}</b><small>${x.date.slice(5).replace('-','/')}</small></button>`).join('')}</div>
-    <div class="route-line"></div>
-    <div class="card" style="padding:16px">
-      <div class="muted">${d.city_en}</div>
-      <h2 style="margin:5px 0 7px">${d.city}</h2>
-      <div class="muted">${d.summary}</div>
-      <div style="margin-top:12px">${hotelForDay(d.date)}</div>
-      <button class="primary full" onclick="openDay(${selectedDay})">查看当天详情</button>
+    <div class="eyebrow">THE WHOLE JOURNEY</div>
+    <div class="title-row"><h1 class="page-title">本次旅程</h1><span class="days-count">${days.length} DAYS</span></div>
+    <div class="route-map">
+      <div class="map-paper"></div><div class="map-mountain m1"></div><div class="map-mountain m2"></div><div class="map-mountain m3"></div><div class="map-mountain m4"></div>
+      <div class="map-lake lake1"></div><div class="map-lake lake2"></div><div class="map-lake lake3"></div>
+      <svg class="route-svg" viewBox="0 0 360 455" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M292 66 C250 88, 228 125, 199 165 C177 195, 144 212, 112 247 C82 280, 72 314, 82 350" fill="none" stroke="#123b49" stroke-width="4" stroke-linecap="round"/>
+        <path d="M82 350 C117 379, 166 398, 254 407" fill="none" stroke="#123b49" stroke-width="2" stroke-linecap="round" stroke-dasharray="7 7"/>
+        <circle cx="292" cy="66" r="9" fill="#123b49"/><circle cx="199" cy="165" r="8" fill="#176b76"/><circle cx="82" cy="350" r="8" fill="#176b76"/><circle cx="254" cy="407" r="8" fill="#9a5a46"/>
+      </svg>
+      <div class="map-label vienna">Vienna / 维也纳</div><div class="map-label budapest">① Budapest / 布达佩斯</div><div class="map-label split">② Split / 斯普利特</div><div class="map-label dubrovnik">③ Dubrovnik / 杜布罗夫尼克</div>
+      <div class="map-caption">路线示意 · 实际导航以当天 Google Maps 为准</div>
     </div>
-    <div class="section-head"><h2>⚠️ 提前预约 / 购票</h2></div>
-    <div class="list">${bookingList(days).slice(0,5).map(x=>`<div class="item"><span>${icons[x.type]||'🎟️'}</span><div class="grow"><b>${x.title}</b><div class="muted">${x.date} · ${x.note||'建议提前安排'}</div></div></div>`).join('') || '<div class="empty">暂无</div>'}</div>
+    <div class="map-note">这张地图只负责让你快速理解旅程方向，不替代当天的驾车、步行与公共交通导航。</div>
+    <div class="section-head"><h2>每日行程</h2><span>DAY BY DAY</span></div>
+    <div class="date-strip">${days.map((x,i)=>`<button class="day-btn ${i===selectedDay?'active':''}" onclick="selectDay(${i})"><b>${x.day_label}</b><small>${x.date.slice(5).replace('-','/')}</small></button>`).join('')}</div>
+    <div class="day-overview"><div class="city">${d.city_en}</div><h3>${d.summary}</h3><p>${d.city}</p><div class="day-actions"><button class="primary" onclick="openDay(${selectedDay})">展开当天行程</button></div></div>
+    <div class="timeline">${d.activities.map((a,i)=>{const tm=approximateTime(a,i,d.activities); return `<div class="event"><div class="event-time ${tm.approximate?'approx':''}">${tm.text} · ${icons[a.type]||'•'}</div><h3>${a.title}</h3>${a.booking_required?`<span class="tag">建议提前预约 · ${a.booking_note||''}</span>`:''}${maps(a.location_query)}</div>`;}).join('')}</div>
   `;
 }
+
 function hotelForDay(date) {
   const h=TRIP.accommodations.find(x=>date>=x.check_in.slice(0,10)&&date<x.check_out.slice(0,10));
   if(!h) return '<div class="hotel-mini">🏨 当晚：无固定住宿（交通途中/行程结束）</div>';
@@ -268,54 +221,39 @@ function openDay(i) {
   document.getElementById('sheetContent').innerHTML=`
     <div class="sheet-head"><div><div class="muted">${d.day_label} · ${d.date}</div><h2 style="margin:5px 0">${d.city}</h2><div class="muted">${d.summary}</div></div><button class="close" onclick="closeSheet()">×</button></div>
     <div style="margin-top:12px">${hotelForDay(d.date)}</div>
-    <div class="timeline">${d.activities.map(a=>`
+    <div class="timeline">${d.activities.map((a,i)=>{const tm=approximateTime(a,i,d.activities); return `
       <div class="event">
-        <div class="event-time">${a.time||'时间待定'} · ${icons[a.type]||'•'}</div>
+        <div class="event-time ${tm.approximate?'approx':''}">${tm.text} · ${icons[a.type]||'•'}</div>
         <h3>${a.title}</h3>
         ${a.booking_required?`<span class="tag">🎟️ 建议提前购票 / 预约 · ${a.booking_note||''}</span>`:''}
         ${maps(a.location_query)}
-      </div>`).join('')}</div>`;
+      </div>`;}).join('')}</div>`;
   document.getElementById('sheet').classList.add('open');
 }
 function closeSheet() {document.getElementById('sheet').classList.remove('open')}
+let driveTab='check';
+function setDriveTab(tab){driveTab=tab;renderDriving()}
 function renderDriving() {
- const c=TRIP.car_rentals[0];
- const costs=c.price_breakdown;
- const pickup=`${c.pickup.date} ${c.pickup.time}`;
- const drop=`${c.dropoff.date} ${c.dropoff.time}`;
- const checks1=['车辆外观检查（划痕拍照）','油量/电量记录','随车文件确认（行驶证、保险单）','确认 GPS / 儿童座椅等附加设备（如有）'];
+ const c=TRIP.car_rentals[0], costs=c.price_breakdown;
+ const pickup=`${c.pickup.date} ${c.pickup.time}`, drop=`${c.dropoff.date} ${c.dropoff.time}`;
+ const checks1=['车辆外观检查（划痕拍照）','油量 / 电量记录','随车文件确认（行驶证、保险单）','确认 GPS / 儿童座椅等附加设备（如有）'];
  const checks2=['车内清洁、个人物品清点','油量是否符合还车政策','钥匙 + 文件交还位置确认','拍照留存车况'];
+ const tabBody=driveTab==='check'?`<div class="card drive-panel"><div class="check-list">${checks1.concat(checks2).map((x,i)=>`<label class="check-row"><input type="checkbox" data-drive="${i<checks1.length?'p':'d'}${i}"><span>${x}</span></label>`).join('')}</div></div>`:
+ driveTab==='order'?`<div class="card drive-panel"><div class="check-list"><div class="check-row"><span style="flex:1"><b>订单信息</b><br><span class="muted">预订车辆、取还车地点与日期以订单为准。</span></span></div><div class="check-row"><span style="flex:1"><b>费用</b><br><span class="muted">页面展示预付金额与价格拆分，现场附加项目以租车合同为准。</span></span></div><div class="check-row"><span style="flex:1"><b>保障</b><br><span class="muted">保险、道路税及异地还车相关费用请按订单与合同核对。</span></span></div></div></div>`:
+ `<div class="card drive-panel"><div class="check-list"><div class="check-row"><span style="flex:1"><b>出发前</b><br><span class="muted">确认驾驶证件、导航、油量与停车规则。</span></span></div><div class="check-row"><span style="flex:1"><b>途中</b><br><span class="muted">山区、沿海与跨境路段按当地限速和道路标识驾驶。</span></span></div><div class="check-row"><span style="flex:1"><b>还车</b><br><span class="muted">拍照留存车况、油量、钥匙和停车位置。</span></span></div></div></div>`;
  document.getElementById('driving').innerHTML=`
-   <div class="section-head"><h2>🚗 自驾租车</h2><span>1 天</span></div>
-   <div class="card drive-card">
-    <div class="muted">Sixt · CDAR · 示例车型 VW Golf</div>
-    <div style="margin-top:14px" class="drive-route">
-      <div class="track"></div><div>
-        <b>取车 · ${pickup}</b><div class="muted">${c.pickup.station}</div>${maps(c.pickup.station)}
-        <div style="height:38px"></div>
-        <b>还车 · ${drop}</b><div class="muted">${c.dropoff.station}</div>${maps(c.dropoff.station)}
-      </div>
-    </div>
-    <div class="notice">沿克罗地亚 8 号沿海公路（D8）南下，异地还车。还车点为 Rixos Libertas 酒店车库，钥匙按预订说明交酒店前台。</div>
-   </div>
-   <div class="section-head"><h2>取车检查</h2></div>
-   <div class="card check-group">${checks1.map((x,i)=>`<label class="check-row"><input type="checkbox" data-drive="p${i}"><span>${x}</span></label>`).join('')}</div>
-   <div class="section-head"><h2>还车检查</h2></div>
-   <div class="card check-group">${checks2.map((x,i)=>`<label class="check-row"><input type="checkbox" data-drive="d${i}"><span>${x}</span></label>`).join('')}</div>
-   <div class="section-head"><h2>驾驶提醒</h2></div>
-   <div class="card check-group">
-     <div class="muted" style="line-height:1.8">靠右行驶；页面中的限速/收费信息仅作行程提醒，实际以当地道路标识与官方规则为准。老城区停车与通行限制需现场确认。国际驾照/驾照要求请以租车公司及当地法规为准。</div>
-   </div>
-   <div class="section-head"><h2>费用明细</h2></div>
-   <details class="card collapsible"><summary>展开查看租车费用</summary><div class="costs">
-     <div class="cost-row"><span>租车费用</span><b>€${costs.rental_days_eur.toFixed(2)}</b></div>
-     <div class="cost-row"><span>异地还车费</span><b>€${costs.one_way_fee_eur.toFixed(2)}</b></div>
-     <div class="cost-row"><span>Road tax</span><b>€${costs.road_tax_rfl_eur.toFixed(2)}</b></div>
-     <div class="cost-row"><span>全险保障</span><b>€${costs.all_inclusive_protection_eur.toFixed(2)}</b></div>
-     <div class="cost-row"><span>当地税</span><b>€${costs.local_tax_eur.toFixed(2)}</b></div>
-     <div class="cost-row"><span>预付总额</span><b>€${c.prepaid_amount_eur.toFixed(2)}</b></div>
-   </div></details>`;
+  <div class="eyebrow">ON THE ROAD</div><div class="title-row"><h1 class="page-title">自驾信息</h1><span class="days-count">SIXT</span></div>
+  <div class="drive-hero"><div class="muted">Sixt · CDAR</div><h3>Sixt · 租车自驾</h3><div class="muted">车型以现场实际提供为准 · 异地还车</div>
+   <div class="drive-meta"><div><small>PICK UP</small><b>${pickup}</b><div class="muted">${c.pickup.station}</div></div><div><small>RETURN</small><b>${drop}</b><div class="muted">${c.dropoff.station}</div></div></div>
+   <div class="drive-total"><span>租车费用 · ${c.rental_days} 天</span><strong>€${c.prepaid_amount_eur.toFixed(2)}</strong></div>
+  </div>
+  <div class="drive-tabs"><button class="${driveTab==='check'?'active':''}" onclick="setDriveTab('check')">取还车检查</button><button class="${driveTab==='order'?'active':''}" onclick="setDriveTab('order')">订单保障</button><button class="${driveTab==='drive'?'active':''}" onclick="setDriveTab('drive')">驾驶提醒</button></div>
+  ${tabBody}
+  <div class="notice">还车点为 Dubrovnik Rixos 酒店车库，钥匙按预订说明交酒店前台。现场以租车合同、道路标识及当地规则为准。</div>
+  <div class="section-head"><h2>费用明细</h2><span>PRICE</span></div>
+  <details class="card" style="overflow:hidden"><summary style="cursor:pointer;padding:16px;font-weight:850">展开查看租车费用</summary><div style="padding:0 16px 16px;font-size:12px">${[['租车费用',costs.rental_days_eur],['异地还车费',costs.one_way_fee_eur],['Road tax',costs.road_tax_rfl_eur],['全险保障',costs.all_inclusive_protection_eur],['当地税',costs.local_tax_eur],['预付总额',c.prepaid_amount_eur]].map(r=>`<div style="display:flex;justify-content:space-between;padding:8px 0;color:#718087;border-bottom:1px solid #e4e9e5"><span>${r[0]}</span><b style="color:#10262d">€${Number(r[1]).toFixed(2)}</b></div>`).join('')}</div></details>`;
 }
+
 function getChecklist() {
  try { return JSON.parse(localStorage.getItem(STORAGE.checklist)) || [
   {text:'护照',done:false},{text:'充电器',done:false},{text:'转换插头',done:false},
@@ -324,13 +262,15 @@ function getChecklist() {
 }
 function saveChecklist(x) {localStorage.setItem(STORAGE.checklist,JSON.stringify(x))}
 function renderChecklist() {
- const items=getChecklist();
+ const items=getChecklist(), done=items.filter(x=>x.done).length;
  document.getElementById('checklist').innerHTML=`
-  <div class="section-head"><h2>✓ 打包清单</h2><span>仅自己可见</span></div>
-  <div class="card form"><div style="display:flex;gap:8px"><input id="newItem" placeholder="+ 添加物品" onkeydown="if(event.key==='Enter')addItem()"><button class="primary" onclick="addItem()">添加</button></div></div>
-  <div class="list">${items.map((x,i)=>`<div class="item ${x.done?'done':''}"><input type="checkbox" ${x.done?'checked':''} onchange="toggleItem(${i})"><span class="grow">${x.text}</span><button class="del" onclick="deleteItem(${i})">×</button></div>`).join('') || '<div class="empty">还没有物品</div>'}</div>
-  <div class="notice">本清单使用当前设备的本地持久化存储，不会和同行人的清单混在一起。</div>`;
+  <div class="eyebrow">BEFORE WE GO</div><div class="title-row"><h1 class="page-title">旅行前准备</h1><span class="days-count">${done} / ${items.length}</span></div>
+  <div class="add-row"><input id="newItem" placeholder="添加一项准备事项" onkeydown="if(event.key==='Enter')addItem()"><button class="primary" onclick="addItem()">添加</button></div>
+  <div class="card" style="margin-top:14px;padding:0 16px"><div class="check-list">${items.map((x,i)=>`<label class="check-row"><input type="checkbox" ${x.done?'checked':''} onchange="toggleItem(${i})"><span style="flex:1">${x.text}</span><button class="del" style="border:0;background:none;color:#a8b0b1" onclick="deleteItem(${i})">删除</button></label>`).join('') || '<div class="empty">还没有物品</div>'}</div></div>
+  <div class="check-help">清单仅保存在当前设备，不会与同行人同步。建议出发前逐项确认护照、支付工具、充电设备与转换插头。</div>
+ `;
 }
+
 function addItem() {const el=document.getElementById('newItem'); const text=el.value.trim(); if(!text)return; const a=getChecklist();a.push({text,done:false});saveChecklist(a);renderChecklist();setTimeout(()=>document.getElementById('newItem')?.focus(),0)}
 function toggleItem(i) {const a=getChecklist();a[i].done=!a[i].done;saveChecklist(a);renderChecklist()}
 function deleteItem(i) {const a=getChecklist();a.splice(i,1);saveChecklist(a);renderChecklist()}
