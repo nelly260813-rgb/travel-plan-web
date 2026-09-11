@@ -1,0 +1,801 @@
+{
+  "trip_meta": {
+    "title": "匈牙利-克罗地亚-奥地利 8日行程",
+    "travelers": [
+      {
+        "name": "NING LI",
+        "name_cn": "李宁（示例音译，以证件为准）"
+      },
+      {
+        "name": "LEQI WEI"
+      }
+    ],
+    "entry_date": "2026-10-01",
+    "entry_point": "Budapest, Hungary",
+    "exit_date": "2026-10-08",
+    "exit_point": "Vienna, Austria",
+    "total_nights": 8,
+    "nights_in_croatia": 5,
+    "route_summary": [
+      "中国上海 Shanghai",
+      "匈牙利布达佩斯 Budapest",
+      "克罗地亚斯普利特 Split",
+      "克罗地亚赫瓦尔岛 Hvar (一日游)",
+      "克罗地亚杜布罗夫尼克 Dubrovnik",
+      "奥地利维也纳 Vienna",
+      "中国上海 Shanghai"
+    ],
+    "main_cities": [
+      {
+        "city": "Budapest",
+        "country": "Hungary",
+        "arrive": "2026-10-01",
+        "depart": "2026-10-02"
+      },
+      {
+        "city": "Split",
+        "country": "Croatia",
+        "arrive": "2026-10-03",
+        "depart": "2026-10-05"
+      },
+      {
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "arrive": "2026-10-05",
+        "depart": "2026-10-07"
+      },
+      {
+        "city": "Vienna",
+        "country": "Austria",
+        "arrive": "2026-10-07",
+        "depart": "2026-10-08"
+      }
+    ],
+    "currencies_involved": [
+      "CNY",
+      "EUR",
+      "HUF"
+    ]
+  },
+  "flights": [
+    {
+      "id": "flight-1",
+      "airline": "Lufthansa",
+      "flight_no": "LH727",
+      "from": {
+        "code": "PVG",
+        "city": "Shanghai",
+        "country": "China"
+      },
+      "to": {
+        "code": "MUC",
+        "city": "Munich",
+        "country": "Germany"
+      },
+      "departure": "2026-09-30 23:35",
+      "arrival": "2026-10-01 06:40 (+1)",
+      "datetime_start": "2026-09-30T23:35:00",
+      "datetime_end": "2026-10-01T06:40:00",
+      "class": "Economy",
+      "terminal": "T2 - T2"
+    },
+    {
+      "id": "flight-2",
+      "airline": "Lufthansa",
+      "flight_no": "LH1676",
+      "from": {
+        "code": "MUC",
+        "city": "Munich",
+        "country": "Germany"
+      },
+      "to": {
+        "code": "BUD",
+        "city": "Budapest",
+        "country": "Hungary"
+      },
+      "departure": "2026-10-01 11:20",
+      "arrival": "2026-10-01 12:35",
+      "datetime_start": "2026-10-01T11:20:00",
+      "datetime_end": "2026-10-01T12:35:00",
+      "class": "Economy",
+      "terminal": "T2 - T2A"
+    },
+    {
+      "id": "flight-3",
+      "airline": "Ryanair",
+      "flight_no": "FR9756",
+      "from": {
+        "code": "DBV",
+        "city": "Dubrovnik",
+        "country": "Croatia"
+      },
+      "to": {
+        "code": "VIE",
+        "city": "Vienna",
+        "country": "Austria"
+      },
+      "departure": "2026-10-07 20:35",
+      "arrival": "2026-10-07 22:00",
+      "datetime_start": "2026-10-07T20:35:00",
+      "datetime_end": "2026-10-07T22:00:00",
+      "class": "Economy",
+      "terminal": "- T3",
+      "fare_cny": 546.0,
+      "tax_cny": 3.0
+    },
+    {
+      "id": "flight-4",
+      "airline": "Austrian Airlines",
+      "flight_no": "OS15",
+      "from": {
+        "code": "VIE",
+        "city": "Vienna",
+        "country": "Austria"
+      },
+      "to": {
+        "code": "PVG",
+        "city": "Shanghai",
+        "country": "China"
+      },
+      "departure": "2026-10-08 13:15",
+      "arrival": "2026-10-08 06:00 (+1, 到达为次日/时区差异，以票面为准)",
+      "datetime_start": "2026-10-08T13:15:00",
+      "datetime_end": "2026-10-08T06:00:00",
+      "class": "Economy",
+      "terminal": "T3 - T2",
+      "fare_cny": 3690.0,
+      "tax_cny": 3350.0
+    }
+  ],
+  "trains": [
+    {
+      "id": "train-1",
+      "operator": "MÁV (匈牙利国铁)",
+      "train_no": "1204",
+      "civ_no": "080140018300",
+      "from": {
+        "station": "Budapest-Keleti",
+        "city": "Budapest"
+      },
+      "to": {
+        "station": "Split",
+        "city": "Split"
+      },
+      "departure": "2026-10-02 18:40",
+      "arrival": "2026-10-03 09:37",
+      "datetime_start": "2026-10-02T18:40:00",
+      "datetime_end": "2026-10-03T09:37:00",
+      "coach": "4",
+      "seat": "021",
+      "compartment_type": "女性卧铺间 / T3 下铺 (Night train berth, lower bed)",
+      "passenger": "NING LI",
+      "price_huf": 39960.0,
+      "price_eur": 108.0,
+      "note": "不可退改；跨境列车，承运方 MÁV(1155) 与 HZ 克罗地亚国铁(1178) 联运"
+    }
+  ],
+  "ferries": [
+    {
+      "id": "ferry-1",
+      "route": "Split ↔ Hvar",
+      "type": "往返渡轮 round trip",
+      "outbound": {
+        "from": "Split",
+        "to": "Hvar",
+        "departure": "09:00",
+        "arrival": "09:50"
+      },
+      "return": {
+        "from": "Hvar",
+        "to": "Split",
+        "departure": "15:15",
+        "arrival": "16:15"
+      },
+      "date": "2026-10-04",
+      "datetime_start": "2026-10-04T09:00:00",
+      "datetime_end": "2026-10-04T16:15:00",
+      "note": "为10.4赫瓦尔一日游方案(Plan B)的船票时间"
+    }
+  ],
+  "car_rentals": [
+    {
+      "id": "car-1",
+      "company": "Sixt",
+      "driver": "WEI LEQI",
+      "car_group": "CDAR",
+      "sample_model": "VW Golf",
+      "rental_days": 1,
+      "datetime_start": "2026-10-05T10:00:00",
+      "datetime_end": "2026-10-05T22:00:00",
+      "pickup": {
+        "date": "2026-10-05",
+        "time": "10:00",
+        "station": "Split - Poljicka ulica 28b, 21000 Split",
+        "hours": "周一至周日 08:00-20:00"
+      },
+      "dropoff": {
+        "date": "2026-10-05",
+        "time": "22:00",
+        "station": "Dubrovnik/Hotel Rixos - Liechtensteinov Put 3, 20000 Dubrovnik",
+        "hours": "24小时还车"
+      },
+      "prepaid_amount_eur": 188.51,
+      "price_breakdown": {
+        "rental_days_eur": 49.5,
+        "one_way_fee_eur": 80.0,
+        "road_tax_rfl_eur": 1.25,
+        "all_inclusive_protection_eur": 57.76,
+        "expected_rental_price_net_eur": 150.81,
+        "local_tax_eur": 37.7,
+        "expected_rental_price_gross_eur": 188.51
+      },
+      "insurance_included": [
+        "Third party insurance",
+        "Loss Damage Waiver with NWR (excess 0.00 EUR)",
+        "Theft Protection (excess 0.00 EUR)",
+        "Interior Protection",
+        "Extended Theft Protection",
+        "Personal Accident Protection",
+        "Tire & Windshield Protection",
+        "Roadside Assistance"
+      ],
+      "note": "沿克罗地亚8号沿海公路(D8)自驾，异地还车；预付费率，如变更需支付20欧元手续费，未按时取车视为No-show不退款"
+    }
+  ],
+  "local_transport_notes": [
+    "布达佩斯市内主要使用地铁/公共交通",
+    "斯普利特与杜布罗夫尼克老城区以步行为主，短途辅以本地交通",
+    "10.7 傍晚前往杜布罗夫尼克机场可搭乘机场大巴"
+  ],
+  "accommodations": [
+    {
+      "id": "hotel-1",
+      "name": "Boutique Hotel Victoria Budapest",
+      "type": "酒店 Hotel",
+      "city": "Budapest",
+      "address": "Bem rakpart 11., 01. Castle District - Budavár, Budapest, Hungary, 1011",
+      "phone": "+3614578080",
+      "check_in": "2026-10-01",
+      "check_out": "2026-10-02",
+      "room_type": "Standard River View Double or Twin",
+      "guests": [
+        "Leqi Wei",
+        "Ning Li"
+      ],
+      "num_rooms": 1,
+      "num_adults": 2,
+      "booking_platform": "Agoda",
+      "benefits": "Free WiFi, Breakfast, Coffee & tea",
+      "not_included": "City Tax (Pay at property) CNY 62.24",
+      "cancellation_policy": "2026-09-29前可免费取消；抵达前2天内取消或未到店(No-Show)将收取第一晚房费"
+    },
+    {
+      "id": "hotel-2",
+      "name": "Luxury new 5* apartment with balcony",
+      "type": "Airbnb 民宿",
+      "city": "Split",
+      "address": "Vukovarska ulica 18, Split, Splitsko-dalmatinska županija 21000, Croatia",
+      "phone_host": "+385 98 954 3202",
+      "host": "Ivana",
+      "check_in": "2026-10-03 14:00",
+      "check_out": "2026-10-05 10:00",
+      "guests": [
+        "Leqi Wei",
+        "Ning Li"
+      ],
+      "num_guests": 2,
+      "amount_paid_cny": 1662.4
+    },
+    {
+      "id": "hotel-3",
+      "name": "Yellow SeaView Apartment",
+      "type": "Airbnb 民宿",
+      "city": "Dubrovnik",
+      "address": "Dubrovačkog odreda 2, Dubrovnik, Dubrovačko-neretvanska županija 20000, Croatia",
+      "phone_host": "+385 91 411 1357",
+      "host": "Alenka",
+      "check_in": "2026-10-05 15:00",
+      "check_out": "2026-10-07 10:00",
+      "guests": [
+        "Leqi Wei",
+        "Ning Li"
+      ],
+      "num_guests": 2,
+      "amount_paid_cny": 2545.58
+    },
+    {
+      "id": "hotel-4",
+      "name": "Moxy Vienna Airport",
+      "type": "酒店 Hotel",
+      "city": "Vienna",
+      "address": "Ausfahrtsstrae 4",
+      "phone": "+43-1-3763760",
+      "check_in": "2026-10-07",
+      "check_out": "2026-10-08",
+      "room_type": "Moxy Sleeper Twin Room (最多入住2人)",
+      "guests": [
+        "LI/NING",
+        "WEI/LEQI"
+      ],
+      "num_rooms": 1,
+      "price_prepaid_rmb": 1168.06,
+      "vat_fee_rmb": 175.07,
+      "breakfast": "不含早餐 None breakfast"
+    }
+  ],
+  "daily_itinerary": [
+    {
+      "date": "2026-09-30",
+      "day_label": "Day 0",
+      "city": "上海 → 飞行途中",
+      "city_en": "Shanghai → In-flight",
+      "summary": "23:35从上海出发搭乘国际航班，夜航飞往布达佩斯（经慕尼黑转机）",
+      "activities": [
+        {
+          "time": "23:35",
+          "title": "上海浦东机场出发，LH727 飞往慕尼黑",
+          "type": "flight",
+          "location_query": "Shanghai Pudong International Airport",
+          "booking_required": false
+        }
+      ],
+      "transportation": "国际航班 LH727 (PVG 23:35 → MUC 次日06:40)",
+      "accommodation": "飞机上过夜 Overnight on airplane"
+    },
+    {
+      "date": "2026-10-01",
+      "day_label": "Day 1",
+      "city": "匈牙利布达佩斯",
+      "city_en": "Budapest, Hungary",
+      "summary": "抵达布达佩斯，入住酒店，游览布达城堡区，晚间多瑙河游船",
+      "activities": [
+        {
+          "time": "06:40",
+          "title": "抵达慕尼黑机场，转机",
+          "type": "flight",
+          "location_query": "Munich Airport",
+          "booking_required": false
+        },
+        {
+          "time": "11:20",
+          "title": "慕尼黑出发 LH1676",
+          "type": "flight",
+          "location_query": "Munich Airport",
+          "booking_required": false
+        },
+        {
+          "time": "12:35",
+          "title": "抵达布达佩斯机场",
+          "type": "flight",
+          "location_query": "Budapest Ferenc Liszt International Airport",
+          "booking_required": false
+        },
+        {
+          "time": "14:30",
+          "title": "抵达酒店办理入住",
+          "type": "hotel",
+          "location_query": "Boutique Hotel Victoria Budapest",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "链桥",
+          "type": "sight",
+          "location_query": "Széchenyi Chain Bridge Budapest",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "圣伊什特万圣殿",
+          "type": "sight",
+          "location_query": "St. Stephen's Basilica Budapest",
+          "booking_required": true,
+          "booking_note": "登顶观景台建议提前购票"
+        },
+        {
+          "time": "",
+          "title": "国会大厦",
+          "type": "sight",
+          "location_query": "Hungarian Parliament Building",
+          "booking_required": true,
+          "booking_note": "内部参观需提前预约，官网售票易售罄"
+        },
+        {
+          "time": "",
+          "title": "多瑙河畔的鞋子纪念碑",
+          "type": "sight",
+          "location_query": "Shoes on the Danube Bank",
+          "booking_required": false
+        },
+        {
+          "time": "18:00",
+          "title": "Gettó Gulyás 晚餐",
+          "type": "restaurant",
+          "location_query": "Gettó Gulyás Budapest",
+          "booking_required": true,
+          "booking_note": "已预订，18:00"
+        },
+        {
+          "time": "20:00",
+          "title": "多瑙河游船欣赏夜景",
+          "type": "activity",
+          "location_query": "Danube River Night Cruise Budapest",
+          "booking_required": true,
+          "booking_note": "建议提前在线购票，选好班次(20:00/20:30)"
+        },
+        {
+          "time": "",
+          "title": "国会大厦夜景拍照",
+          "type": "sight",
+          "location_query": "Hungarian Parliament Building night view",
+          "booking_required": false
+        }
+      ],
+      "transportation": "机场交通/市内地铁、公共交通",
+      "accommodation": "Boutique Hotel Victoria Budapest, Budapest"
+    },
+    {
+      "date": "2026-10-02",
+      "day_label": "Day 2",
+      "city": "匈牙利布达佩斯",
+      "city_en": "Budapest, Hungary",
+      "summary": "清晨看日出，游览佩斯侧景点，傍晚搭乘夜间火车前往斯普利特",
+      "activities": [
+        {
+          "time": "06:42",
+          "title": "渔人堡看日出",
+          "type": "sight",
+          "location_query": "Fisherman's Bastion Budapest",
+          "booking_required": false,
+          "booking_note": "日出时间6:42，仅供参考以实际为准"
+        },
+        {
+          "time": "",
+          "title": "马加什教堂",
+          "type": "sight",
+          "location_query": "Matthias Church Budapest",
+          "booking_required": true,
+          "booking_note": "内部参观建议提前购票"
+        },
+        {
+          "time": "",
+          "title": "回酒店稍作休整",
+          "type": "free_time",
+          "location_query": "",
+          "booking_required": false
+        },
+        {
+          "time": "10:00",
+          "title": "出发：布达佩斯地铁站",
+          "type": "transport",
+          "location_query": "Budapest Metro",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "吃午饭",
+          "type": "restaurant",
+          "location_query": "",
+          "booking_required": false,
+          "booking_note": "地点待定"
+        },
+        {
+          "time": "",
+          "title": "布达城堡",
+          "type": "sight",
+          "location_query": "Buda Castle Budapest",
+          "booking_required": true,
+          "booking_note": "城堡内博物馆/画廊区域建议提前购票"
+        },
+        {
+          "time": "",
+          "title": "自由桥",
+          "type": "sight",
+          "location_query": "Liberty Bridge Budapest",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "自由广场（可吃点东西）",
+          "type": "sight",
+          "location_query": "Liberty Square Budapest",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "傍晚前往火车站",
+          "type": "transport",
+          "location_query": "Budapest-Keleti railway station",
+          "booking_required": false
+        },
+        {
+          "time": "18:40",
+          "title": "搭乘夜间火车前往克罗地亚斯普利特",
+          "type": "train",
+          "location_query": "Budapest-Keleti railway station",
+          "booking_required": false,
+          "booking_note": "车票已订，MÁV 1204次"
+        }
+      ],
+      "transportation": "市内公共交通；夜间火车 MÁV 1204 (布达佩斯18:40 → 斯普利特次日09:37)",
+      "accommodation": "夜间火车上过夜 Overnight on train"
+    },
+    {
+      "date": "2026-10-03",
+      "day_label": "Day 3",
+      "city": "克罗地亚斯普利特",
+      "city_en": "Split, Croatia",
+      "summary": "抵达斯普利特，入住民宿，游览老城与戴克里先宫",
+      "activities": [
+        {
+          "time": "09:37",
+          "title": "抵达斯普利特火车站",
+          "type": "train",
+          "location_query": "Split railway station",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "前往民宿办理入住",
+          "type": "hotel",
+          "location_query": "Vukovarska ulica 18 Split",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "Riva 滨海大道",
+          "type": "sight",
+          "location_query": "Riva Split waterfront",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "戴克里先宫 + 老城 全天游览",
+          "type": "sight",
+          "location_query": "Diocletian's Palace Split",
+          "booking_required": true,
+          "booking_note": "地下宫殿/钟楼登顶等部分区域需购票"
+        },
+        {
+          "time": "18:00",
+          "title": "Restaurant Adriatic 晚餐",
+          "type": "restaurant",
+          "location_query": "Restaurant Adriatic Split",
+          "booking_required": true,
+          "booking_note": "已预订，18:00"
+        }
+      ],
+      "transportation": "步行、短途本地交通",
+      "accommodation": "Split Airbnb (Luxury new 5* apartment with balcony), Split"
+    },
+    {
+      "date": "2026-10-04",
+      "day_label": "Day 4",
+      "city": "克罗地亚斯普利特",
+      "city_en": "Split, Croatia",
+      "summary": "赫瓦尔岛一日游（备选：斯普利特五岛跳岛游+蓝洞）",
+      "activities": [
+        {
+          "time": "",
+          "title": "Plan A：斯普利特五岛跳岛游 + 蓝洞",
+          "type": "activity",
+          "location_query": "Blue Cave Split five islands tour",
+          "booking_required": true,
+          "booking_note": "名额有限，建议提前一周以上预订"
+        },
+        {
+          "time": "",
+          "title": "Plan B：赫瓦尔一日游",
+          "type": "activity",
+          "location_query": "",
+          "booking_required": false,
+          "booking_note": "两个方案二选一"
+        },
+        {
+          "time": "09:00",
+          "title": "渡轮 Split → Hvar",
+          "type": "ferry",
+          "location_query": "Split Ferry Port",
+          "booking_required": false,
+          "booking_note": "船票已订"
+        },
+        {
+          "time": "",
+          "title": "游览赫瓦尔小镇、堡垒观景",
+          "type": "sight",
+          "location_query": "Fortica Fortress Hvar",
+          "booking_required": true,
+          "booking_note": "堡垒登顶可能需购票"
+        },
+        {
+          "time": "15:15",
+          "title": "渡轮 Hvar → Split，傍晚返回斯普利特",
+          "type": "ferry",
+          "location_query": "Hvar Ferry Port",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "晚餐待定",
+          "type": "restaurant",
+          "location_query": "",
+          "booking_required": true,
+          "booking_note": "晚餐地点未定，建议提前预订"
+        }
+      ],
+      "transportation": "往返渡轮 Split ↔ Hvar",
+      "accommodation": "Split Airbnb (Luxury new 5* apartment with balcony), Split"
+    },
+    {
+      "date": "2026-10-05",
+      "day_label": "Day 5",
+      "city": "克罗地亚斯普利特 → 杜布罗夫尼克",
+      "city_en": "Split → Dubrovnik, Croatia",
+      "summary": "自驾沿克罗地亚8号沿海公路南下杜布罗夫尼克",
+      "activities": [
+        {
+          "time": "10:00",
+          "title": "斯普利特Sixt门店取车",
+          "type": "car",
+          "location_query": "Sixt Split Poljicka ulica 28b",
+          "booking_required": false,
+          "booking_note": "已预订，预订号9737863728"
+        },
+        {
+          "time": "",
+          "title": "自驾南下杜布罗夫尼克，沿克罗地亚8号沿海公路(D8)",
+          "type": "transport",
+          "location_query": "",
+          "booking_required": false
+        },
+        {
+          "time": "22:00",
+          "title": "杜布罗夫尼克Hotel Rixos门店还车",
+          "type": "car",
+          "location_query": "Sixt Dubrovnik Hotel Rixos Liechtensteinov Put 3",
+          "booking_required": false,
+          "booking_note": "车留车库，钥匙交酒店前台"
+        },
+        {
+          "time": "",
+          "title": "抵达杜布罗夫尼克后入住民宿",
+          "type": "hotel",
+          "location_query": "Dubrovačkog odreda 2 Dubrovnik",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "傍晚自由活动",
+          "type": "free_time",
+          "location_query": "",
+          "booking_required": false
+        }
+      ],
+      "transportation": "自驾租车 Sixt（10:00斯普利特取车 → 22:00杜布罗夫尼克异地还车），预订号9737863728",
+      "accommodation": "Dubrovnik Airbnb (Yellow SeaView Apartment), Dubrovnik"
+    },
+    {
+      "date": "2026-10-06",
+      "day_label": "Day 6",
+      "city": "克罗地亚杜布罗夫尼克",
+      "city_en": "Dubrovnik, Croatia",
+      "summary": "游览杜布罗夫尼克老城、城墙，登SRD山观景",
+      "activities": [
+        {
+          "time": "",
+          "title": "Bosanka Viewpoint",
+          "type": "sight",
+          "location_query": "Bosanka Viewpoint Dubrovnik",
+          "booking_required": false
+        },
+        {
+          "time": "12:00",
+          "title": "备选brunch：Gradska kavana Arsenal",
+          "type": "restaurant",
+          "location_query": "Gradska kavana Arsenal Dubrovnik",
+          "booking_required": false,
+          "booking_note": "早午饭方案待定"
+        },
+        {
+          "time": "",
+          "title": "游览杜布罗夫尼克老城、城墙漫步",
+          "type": "sight",
+          "location_query": "Dubrovnik City Walls",
+          "booking_required": true,
+          "booking_note": "城墙门票建议提前网上购买，旺季现场排队久"
+        },
+        {
+          "time": "",
+          "title": "前往 SRD 山观景，打卡网红餐厅 Panorama",
+          "type": "sight",
+          "location_query": "Dubrovnik Cable Car Srd Hill Panorama Restaurant",
+          "booking_required": true,
+          "booking_note": "缆车票建议提前购买，Panorama餐厅建议提前预约"
+        },
+        {
+          "time": "18:15",
+          "title": "晚饭 Prora",
+          "type": "restaurant",
+          "location_query": "Prora Restaurant Dubrovnik",
+          "booking_required": true,
+          "booking_note": "已预约，18:15"
+        }
+      ],
+      "transportation": "步行、短途本地交通",
+      "accommodation": "Dubrovnik Airbnb (Yellow SeaView Apartment), Dubrovnik"
+    },
+    {
+      "date": "2026-10-07",
+      "day_label": "Day 7",
+      "city": "克罗地亚杜布罗夫尼克 → 奥地利维也纳",
+      "city_en": "Dubrovnik, Croatia → Vienna, Austria",
+      "summary": "上午海滩休闲，傍晚搭机飞往维也纳",
+      "activities": [
+        {
+          "time": "",
+          "title": "早餐：吃大汉堡（待定）",
+          "type": "restaurant",
+          "location_query": "",
+          "booking_required": false,
+          "booking_note": "地点待定"
+        },
+        {
+          "time": "",
+          "title": "Banje Beach 海滨休闲",
+          "type": "beach",
+          "location_query": "Banje Beach Dubrovnik",
+          "booking_required": false
+        },
+        {
+          "time": "18:00",
+          "title": "出发前往机场（可搭机场大巴）",
+          "type": "transport",
+          "location_query": "Dubrovnik Airport",
+          "booking_required": false
+        },
+        {
+          "time": "",
+          "title": "晚餐备选：Konoba Pjatanca 或 Banje Beach Restaurant Lounge & Club",
+          "type": "restaurant",
+          "location_query": "Konoba Pjatanca Dubrovnik",
+          "booking_required": false,
+          "booking_note": "两个备选方案未最终确定"
+        },
+        {
+          "time": "20:35",
+          "title": "航班 FR9756 飞往维也纳",
+          "type": "flight",
+          "location_query": "Dubrovnik Airport",
+          "booking_required": false
+        }
+      ],
+      "transportation": "市内短途交通 + 机场大巴；国际航班 FR9756 (DBV 20:35 → VIE 22:00)",
+      "accommodation": "Moxy Vienna Airport, Vienna"
+    },
+    {
+      "date": "2026-10-08",
+      "day_label": "Day 8",
+      "city": "奥地利维也纳 → 中国上海",
+      "city_en": "Vienna, Austria → Shanghai, China",
+      "summary": "上午市区小逛，中午搭乘国际航班返回上海",
+      "activities": [
+        {
+          "time": "",
+          "title": "上午可能早起去市区小逛",
+          "type": "free_time",
+          "location_query": "Vienna city center",
+          "booking_required": false
+        },
+        {
+          "time": "13:15",
+          "title": "维也纳机场搭乘国际航班 OS15 返回上海",
+          "type": "flight",
+          "location_query": "Vienna International Airport",
+          "booking_required": false
+        }
+      ],
+      "transportation": "国际航班 OS15 (VIE 13:15 → PVG 次日06:00)",
+      "accommodation": "无（行程结束）"
+    }
+  ]
+}

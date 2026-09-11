@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f3ed">
+<title>匈牙利 · 克罗地亚 · 奥地利｜旅行计划</title>
+<style>
+:root{
+  --bg:#f6f3ee; --card:#fffdf9; --ink:#252321; --muted:#817a72;
+  --line:#e8e1d8; --accent:#b65d45; --accent2:#244f4a;
+  --gold:#b58a4a; --shadow:0 12px 30px rgba(44,34,25,.08);
+  --nav:72px; --radius:22px;
+}
+*{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC",Segoe UI,sans-serif}
+body{padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom) + 16px)}
+button,input,select{font:inherit} button{cursor:pointer}
+a{color:inherit}
+.app{max-width:760px;margin:auto}
+.page{display:none;min-height:100vh;padding:20px 16px 30px}
+.page.active{display:block}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:28px 22px;color:#fff;background:
+linear-gradient(135deg,rgba(35,68,65,.94),rgba(145,74,57,.82)),
+radial-gradient(circle at 80% 10%,#e6b36c,transparent 34%);box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-55px;top:-60px}
+.kicker{font-size:12px;letter-spacing:.12em;opacity:.78;text-transform:uppercase}
+h1{font-size:31px;line-height:1.18;margin:10px 0 10px;letter-spacing:-.03em}
+.hero p{margin:0;color:rgba(255,255,255,.8);font-size:14px}
+.hero-stats{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);padding:8px 11px;border-radius:999px;font-size:12px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:25px 2px 12px}
+.section-head h2{font-size:19px;margin:0;letter-spacing:-.02em}
+.section-head span{font-size:12px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.countdown{padding:16px;margin-bottom:12px;background:#fff8ed;border-color:#ead8b9}
+.countdown strong{display:block;font-size:22px;margin-top:3px}
+.countdown small{color:var(--muted)}
+.carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.transit{min-width:88%;scroll-snap-align:start;padding:18px}
+.transit-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+.route{display:flex;align-items:center;gap:10px;margin:15px 0}
+.code{font-size:28px;font-weight:750;letter-spacing:-.04em}
+.city{font-size:12px;color:var(--muted);margin-top:2px}
+.arrow{flex:1;text-align:center;color:var(--accent);font-size:18px}
+.transit-time{display:flex;justify-content:space-between;font-size:13px;border-top:1px solid var(--line);padding-top:12px}
+.meta{font-size:11px;color:var(--muted);margin-top:12px}
+.dots{text-align:center;color:var(--muted);font-size:12px;padding:8px}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quick{padding:17px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;box-shadow:var(--shadow)}
+.quick b{display:block;margin-bottom:6px} .quick small{color:var(--muted)}
+.notice{padding:14px 16px;margin-top:12px;border-radius:18px;background:#f0f5f2;border:1px solid #d6e5df;font-size:13px}
+.date-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+.date-strip::-webkit-scrollbar{display:none}
+.day-btn{min-width:78px;border:1px solid var(--line);background:var(--card);border-radius:16px;padding:10px 8px;text-align:center}
+.day-btn.active{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.day-btn b{display:block;font-size:14px} .day-btn small{font-size:11px;opacity:.75}
+.route-line{height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:99px;margin:0 12px 16px}
+.sheet{position:fixed;inset:0;background:rgba(25,22,20,.38);display:none;align-items:flex-end;z-index:20}
+.sheet.open{display:flex}
+.sheet-panel{background:var(--bg);width:100%;max-height:90vh;border-radius:26px 26px 0 0;overflow:auto;padding:12px 16px 30px;animation:up .2s ease}
+@keyframes up{from{transform:translateY(20px);opacity:.6}to{transform:none;opacity:1}}
+.grab{width:42px;height:4px;background:#d3cbc1;border-radius:99px;margin:0 auto 14px}
+.sheet-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.close{border:0;background:#eae4dc;border-radius:50%;width:34px;height:34px}
+.timeline{margin:20px 0 0 8px;border-left:2px solid #ddd4ca;padding-left:20px}
+.event{position:relative;padding:0 0 20px}
+.event:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);left:-26px;top:5px;border:3px solid var(--bg)}
+.event-time{font-size:11px;color:var(--accent);font-weight:700}
+.event h3{font-size:15px;margin:4px 0 5px}
+.event p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.tag{display:inline-block;font-size:10px;padding:4px 7px;border-radius:999px;background:#fff0e6;color:#a14f36;margin-top:6px}
+.map{display:inline-block;font-size:11px;color:var(--accent2);margin-top:7px;text-decoration:none}
+.hotel-mini{padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--card);font-size:12px}
+.drive-card{padding:18px}
+.drive-route{display:grid;grid-template-columns:12px 1fr;gap:12px}
+.track{position:relative;margin-top:8px;border-left:2px dashed #c8beb3;height:72px}
+.track:before,.track:after{content:"";position:absolute;left:-6px;width:10px;height:10px;border-radius:50%;background:var(--accent2)}
+.track:after{bottom:0;background:var(--accent)}
+.check-group{padding:16px;margin-top:12px}
+.check-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.check-row:last-child{border-bottom:0}
+.check-row input:checked+span{text-decoration:line-through;color:#aaa}
+.collapsible summary{cursor:pointer;padding:16px;font-weight:700}
+.costs{padding:0 16px 16px;font-size:13px}
+.cost-row{display:flex;justify-content:space-between;padding:8px 0;color:var(--muted)}
+.form{padding:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+.primary{border:0;background:var(--accent2);color:white;border-radius:13px;padding:11px 14px;font-weight:700}
+.secondary{border:1px solid var(--line);background:var(--card);border-radius:13px;padding:10px 12px}
+.full{width:100%;margin-top:10px}
+.list{margin-top:10px}
+.item{display:flex;align-items:center;gap:10px;padding:13px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+.item .grow{flex:1}
+.item.done .grow{text-decoration:line-through;color:#aaa}
+.del{border:0;background:none;color:#b7afa6;font-size:18px}
+.expense{padding:14px;margin-bottom:8px}
+.exp-top{display:flex;justify-content:space-between;font-weight:700}
+.exp-sub{color:var(--muted);font-size:11px;margin-top:5px;line-height:1.5}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric{padding:15px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.metric small{color:var(--muted)} .metric b{display:block;font-size:21px;margin-top:5px}
+.nav{position:fixed;left:0;right:0;bottom:0;height:calc(var(--nav) + env(safe-area-inset-bottom));padding:8px 8px env(safe-area-inset-bottom);background:rgba(255,253,249,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);z-index:10;display:flex;justify-content:center}
+.nav-inner{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(5,1fr)}
+.nav button{border:0;background:none;color:#918a82;font-size:10px;padding:5px 2px}
+.nav button span{display:block;font-size:20px;margin-bottom:2px}
+.nav button.active{color:var(--accent2);font-weight:700}
+.muted{color:var(--muted);font-size:12px}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+@media(min-width:600px){.page{padding-top:32px} .transit{min-width:54%}}
+</style>
+</head>
+<body>
+<div class="app">
+  <main id="home" class="page active"></main>
+  <main id="itinerary" class="page"></main>
+  <main id="driving" class="page"></main>
+  <main id="checklist" class="page"></main>
+  <main id="expenses" class="page"></main>
+</div>
+
+<div id="sheet" class="sheet" onclick="if(event.target===this)closeSheet()">
+  <section class="sheet-panel">
+    <div class="grab"></div>
+    <div id="sheetContent"></div>
+  </section>
+</div>
+
+<nav class="nav"><div class="nav-inner">
+  <button data-tab="home" onclick="showTab('home')"><span>⌂</span>首页</button>
+  <button data-tab="itinerary" onclick="showTab('itinerary')"><span>▦</span>行程</button>
+  <button data-tab="driving" onclick="showTab('driving')"><span>⌁</span>自驾</button>
+  <button data-tab="checklist" onclick="showTab('checklist')"><span>✓</span>清单</button>
+  <button data-tab="expenses" onclick="showTab('expenses')"><span>¥</span>账本</button>
+</div></nav>
+
+<script>
+const TRIP = {"trip_meta":{"title":"匈牙利-克罗地亚-奥地利 8日行程","travelers":[{"name":"NING LI","name_cn":"李宁（示例音译，以证件为准）"},{"name":"LEQI WEI"}],"entry_date":"2026-10-01","entry_point":"Budapest, Hungary","exit_date":"2026-10-08","exit_point":"Vienna, Austria","total_nights":8,"nights_in_croatia":5,"route_summary":["中国上海 Shanghai","匈牙利布达佩斯 Budapest","克罗地亚斯普利特 Split","克罗地亚赫瓦尔岛 Hvar (一日游)","克罗地亚杜布罗夫尼克 Dubrovnik","奥地利维也纳 Vienna","中国上海 Shanghai"],"main_cities":[{"city":"Budapest","country":"Hungary","arrive":"2026-10-01","depart":"2026-10-02"},{"city":"Split","country":"Croatia","arrive":"2026-10-03","depart":"2026-10-05"},{"city":"Dubrovnik","country":"Croatia","arrive":"2026-10-05","depart":"2026-10-07"},{"city":"Vienna","country":"Austria","arrive":"2026-10-07","depart":"2026-10-08"}],"currencies_involved":["CNY","EUR","HUF"]},"flights":[{"id":"flight-1","airline":"Lufthansa","flight_no":"LH727","from":{"code":"PVG","city":"Shanghai","country":"China"},"to":{"code":"MUC","city":"Munich","country":"Germany"},"departure":"2026-09-30 23:35","arrival":"2026-10-01 06:40 (+1)","datetime_start":"2026-09-30T23:35:00","datetime_end":"2026-10-01T06:40:00","class":"Economy","terminal":"T2 - T2"},{"id":"flight-2","airline":"Lufthansa","flight_no":"LH1676","from":{"code":"MUC","city":"Munich","country":"Germany"},"to":{"code":"BUD","city":"Budapest","country":"Hungary"},"departure":"2026-10-01 11:20","arrival":"2026-10-01 12:35","datetime_start":"2026-10-01T11:20:00","datetime_end":"2026-10-01T12:35:00","class":"Economy","terminal":"T2 - T2A"},{"id":"flight-3","airline":"Ryanair","flight_no":"FR9756","from":{"code":"DBV","city":"Dubrovnik","country":"Croatia"},"to":{"code":"VIE","city":"Vienna","country":"Austria"},"departure":"2026-10-07 20:35","arrival":"2026-10-07 22:00","datetime_start":"2026-10-07T20:35:00","datetime_end":"2026-10-07T22:00:00","class":"Economy","terminal":"- T3","fare_cny":546.0,"tax_cny":3.0},{"id":"flight-4","airline":"Austrian Airlines","flight_no":"OS15","from":{"code":"VIE","city":"Vienna","country":"Austria"},"to":{"code":"PVG","city":"Shanghai","country":"China"},"departure":"2026-10-08 13:15","arrival":"2026-10-08 06:00 (+1, 到达为次日/时区差异，以票面为准)","datetime_start":"2026-10-08T13:15:00","datetime_end":"2026-10-08T06:00:00","class":"Economy","terminal":"T3 - T2","fare_cny":3690.0,"tax_cny":3350.0}],"trains":[{"id":"train-1","operator":"MÁV (匈牙利国铁)","train_no":"1204","civ_no":"080140018300","from":{"station":"Budapest-Keleti","city":"Budapest"},"to":{"station":"Split","city":"Split"},"departure":"2026-10-02 18:40","arrival":"2026-10-03 09:37","datetime_start":"2026-10-02T18:40:00","datetime_end":"2026-10-03T09:37:00","coach":"4","seat":"021","compartment_type":"女性卧铺间 / T3 下铺 (Night train berth, lower bed)","passenger":"NING LI","price_huf":39960.0,"price_eur":108.0,"note":"不可退改；跨境列车，承运方 MÁV(1155) 与 HZ 克罗地亚国铁(1178) 联运"}],"ferries":[{"id":"ferry-1","route":"Split ↔ Hvar","type":"往返渡轮 round trip","outbound":{"from":"Split","to":"Hvar","departure":"09:00","arrival":"09:50"},"return":{"from":"Hvar","to":"Split","departure":"15:15","arrival":"16:15"},"date":"2026-10-04","datetime_start":"2026-10-04T09:00:00","datetime_end":"2026-10-04T16:15:00","note":"为10.4赫瓦尔一日游方案(Plan B)的船票时间"}],"car_rentals":[{"id":"car-1","company":"Sixt","driver":"WEI LEQI","car_group":"CDAR","sample_model":"VW Golf","rental_days":1,"datetime_start":"2026-10-05T10:00:00","datetime_end":"2026-10-05T22:00:00","pickup":{"date":"2026-10-05","time":"10:00","station":"Split - Poljicka ulica 28b, 21000 Split","hours":"周一至周日 08:00-20:00"},"dropoff":{"date":"2026-10-05","time":"22:00","station":"Dubrovnik/Hotel Rixos - Liechtensteinov Put 3, 20000 Dubrovnik","hours":"24小时还车"},"prepaid_amount_eur":188.51,"price_breakdown":{"rental_days_eur":49.5,"one_way_fee_eur":80.0,"road_tax_rfl_eur":1.25,"all_inclusive_protection_eur":57.76,"expected_rental_price_net_eur":150.81,"local_tax_eur":37.7,"expected_rental_price_gross_eur":188.51},"insurance_included":["Third party insurance","Loss Damage Waiver with NWR (excess 0.00 EUR)","Theft Protection (excess 0.00 EUR)","Interior Protection","Extended Theft Protection","Personal Accident Protection","Tire & Windshield Protection","Roadside Assistance"],"note":"沿克罗地亚8号沿海公路(D8)自驾，异地还车；预付费率，如变更需支付20欧元手续费，未按时取车视为No-show不退款"}],"local_transport_notes":["布达佩斯市内主要使用地铁/公共交通","斯普利特与杜布罗夫尼克老城区以步行为主，短途辅以本地交通","10.7 傍晚前往杜布罗夫尼克机场可搭乘机场大巴"],"accommodations":[{"id":"hotel-1","name":"Boutique Hotel Victoria Budapest","type":"酒店 Hotel","city":"Budapest","address":"Bem rakpart 11., 01. Castle District - Budavár, Budapest, Hungary, 1011","phone":"+3614578080","check_in":"2026-10-01","check_out":"2026-10-02","room_type":"Standard River View Double or Twin","guests":["Leqi Wei","Ning Li"],"num_rooms":1,"num_adults":2,"booking_platform":"Agoda","benefits":"Free WiFi, Breakfast, Coffee & tea","not_included":"City Tax (Pay at property) CNY 62.24","cancellation_policy":"2026-09-29前可免费取消；抵达前2天内取消或未到店(No-Show)将收取第一晚房费"},{"id":"hotel-2","name":"Luxury new 5* apartment with balcony","type":"Airbnb 民宿","city":"Split","address":"Vukovarska ulica 18, Split, Splitsko-dalmatinska županija 21000, Croatia","phone_host":"+385 98 954 3202","host":"Ivana","check_in":"2026-10-03 14:00","check_out":"2026-10-05 10:00","guests":["Leqi Wei","Ning Li"],"num_guests":2,"amount_paid_cny":1662.4},{"id":"hotel-3","name":"Yellow SeaView Apartment","type":"Airbnb 民宿","city":"Dubrovnik","address":"Dubrovačkog odreda 2, Dubrovnik, Dubrovačko-neretvanska županija 20000, Croatia","phone_host":"+385 91 411 1357","host":"Alenka","check_in":"2026-10-05 15:00","check_out":"2026-10-07 10:00","guests":["Leqi Wei","Ning Li"],"num_guests":2,"amount_paid_cny":2545.58},{"id":"hotel-4","name":"Moxy Vienna Airport","type":"酒店 Hotel","city":"Vienna","address":"Ausfahrtsstrae 4","phone":"+43-1-3763760","check_in":"2026-10-07","check_out":"2026-10-08","room_type":"Moxy Sleeper Twin Room (最多入住2人)","guests":["LI/NING","WEI/LEQI"],"num_rooms":1,"price_prepaid_rmb":1168.06,"vat_fee_rmb":175.07,"breakfast":"不含早餐 None breakfast"}],"daily_itinerary":[{"date":"2026-09-30","day_label":"Day 0","city":"上海 → 飞行途中","city_en":"Shanghai → In-flight","summary":"23:35从上海出发搭乘国际航班，夜航飞往布达佩斯（经慕尼黑转机）","activities":[{"time":"23:35","title":"上海浦东机场出发，LH727 飞往慕尼黑","type":"flight","location_query":"Shanghai Pudong International Airport","booking_required":false}],"transportation":"国际航班 LH727 (PVG 23:35 → MUC 次日06:40)","accommodation":"飞机上过夜 Overnight on airplane"},{"date":"2026-10-01","day_label":"Day 1","city":"匈牙利布达佩斯","city_en":"Budapest, Hungary","summary":"抵达布达佩斯，入住酒店，游览布达城堡区，晚间多瑙河游船","activities":[{"time":"06:40","title":"抵达慕尼黑机场，转机","type":"flight","location_query":"Munich Airport","booking_required":false},{"time":"11:20","title":"慕尼黑出发 LH1676","type":"flight","location_query":"Munich Airport","booking_required":false},{"time":"12:35","title":"抵达布达佩斯机场","type":"flight","location_query":"Budapest Ferenc Liszt International Airport","booking_required":false},{"time":"14:30","title":"抵达酒店办理入住","type":"hotel","location_query":"Boutique Hotel Victoria Budapest","booking_required":false},{"time":"","title":"链桥","type":"sight","location_query":"Széchenyi Chain Bridge Budapest","booking_required":false},{"time":"","title":"圣伊什特万圣殿","type":"sight","location_query":"St. Stephen's Basilica Budapest","booking_required":true,"booking_note":"登顶观景台建议提前购票"},{"time":"","title":"国会大厦","type":"sight","location_query":"Hungarian Parliament Building","booking_required":true,"booking_note":"内部参观需提前预约，官网售票易售罄"},{"time":"","title":"多瑙河畔的鞋子纪念碑","type":"sight","location_query":"Shoes on the Danube Bank","booking_required":false},{"time":"18:00","title":"Gettó Gulyás 晚餐","type":"restaurant","location_query":"Gettó Gulyás Budapest","booking_required":true,"booking_note":"已预订，18:00"},{"time":"20:00","title":"多瑙河游船欣赏夜景","type":"activity","location_query":"Danube River Night Cruise Budapest","booking_required":true,"booking_note":"建议提前在线购票，选好班次(20:00/20:30)"},{"time":"","title":"国会大厦夜景拍照","type":"sight","location_query":"Hungarian Parliament Building night view","booking_required":false}],"transportation":"机场交通/市内地铁、公共交通","accommodation":"Boutique Hotel Victoria Budapest, Budapest"},{"date":"2026-10-02","day_label":"Day 2","city":"匈牙利布达佩斯","city_en":"Budapest, Hungary","summary":"清晨看日出，游览佩斯侧景点，傍晚搭乘夜间火车前往斯普利特","activities":[{"time":"06:42","title":"渔人堡看日出","type":"sight","location_query":"Fisherman's Bastion Budapest","booking_required":false,"booking_note":"日出时间6:42，仅供参考以实际为准"},{"time":"","title":"马加什教堂","type":"sight","location_query":"Matthias Church Budapest","booking_required":true,"booking_note":"内部参观建议提前购票"},{"time":"","title":"回酒店稍作休整","type":"free_time","location_query":"","booking_required":false},{"time":"10:00","title":"出发：布达佩斯地铁站","type":"transport","location_query":"Budapest Metro","booking_required":false},{"time":"","title":"吃午饭","type":"restaurant","location_query":"","booking_required":false,"booking_note":"地点待定"},{"time":"","title":"布达城堡","type":"sight","location_query":"Buda Castle Budapest","booking_required":true,"booking_note":"城堡内博物馆/画廊区域建议提前购票"},{"time":"","title":"自由桥","type":"sight","location_query":"Liberty Bridge Budapest","booking_required":false},{"time":"","title":"自由广场（可吃点东西）","type":"sight","location_query":"Liberty Square Budapest","booking_required":false},{"time":"","title":"傍晚前往火车站","type":"transport","location_query":"Budapest-Keleti railway station","booking_required":false},{"time":"18:40","title":"搭乘夜间火车前往克罗地亚斯普利特","type":"train","location_query":"Budapest-Keleti railway station","booking_required":false,"booking_note":"车票已订，MÁV 1204次"}],"transportation":"市内公共交通；夜间火车 MÁV 1204 (布达佩斯18:40 → 斯普利特次日09:37)","accommodation":"夜间火车上过夜 Overnight on train"},{"date":"2026-10-03","day_label":"Day 3","city":"克罗地亚斯普利特","city_en":"Split, Croatia","summary":"抵达斯普利特，入住民宿，游览老城与戴克里先宫","activities":[{"time":"09:37","title":"抵达斯普利特火车站","type":"train","location_query":"Split railway station","booking_required":false},{"time":"","title":"前往民宿办理入住","type":"hotel","location_query":"Vukovarska ulica 18 Split","booking_required":false},{"time":"","title":"Riva 滨海大道","type":"sight","location_query":"Riva Split waterfront","booking_required":false},{"time":"","title":"戴克里先宫 + 老城 全天游览","type":"sight","location_query":"Diocletian's Palace Split","booking_required":true,"booking_note":"地下宫殿/钟楼登顶等部分区域需购票"},{"time":"18:00","title":"Restaurant Adriatic 晚餐","type":"restaurant","location_query":"Restaurant Adriatic Split","booking_required":true,"booking_note":"已预订，18:00"}],"transportation":"步行、短途本地交通","accommodation":"Split Airbnb (Luxury new 5* apartment with balcony), Split"},{"date":"2026-10-04","day_label":"Day 4","city":"克罗地亚斯普利特","city_en":"Split, Croatia","summary":"赫瓦尔岛一日游（备选：斯普利特五岛跳岛游+蓝洞）","activities":[{"time":"","title":"Plan A：斯普利特五岛跳岛游 + 蓝洞","type":"activity","location_query":"Blue Cave Split five islands tour","booking_required":true,"booking_note":"名额有限，建议提前一周以上预订"},{"time":"","title":"Plan B：赫瓦尔一日游","type":"activity","location_query":"","booking_required":false,"booking_note":"两个方案二选一"},{"time":"09:00","title":"渡轮 Split → Hvar","type":"ferry","location_query":"Split Ferry Port","booking_required":false,"booking_note":"船票已订"},{"time":"","title":"游览赫瓦尔小镇、堡垒观景","type":"sight","location_query":"Fortica Fortress Hvar","booking_required":true,"booking_note":"堡垒登顶可能需购票"},{"time":"15:15","title":"渡轮 Hvar → Split，傍晚返回斯普利特","type":"ferry","location_query":"Hvar Ferry Port","booking_required":false},{"time":"","title":"晚餐待定","type":"restaurant","location_query":"","booking_required":true,"booking_note":"晚餐地点未定，建议提前预订"}],"transportation":"往返渡轮 Split ↔ Hvar","accommodation":"Split Airbnb (Luxury new 5* apartment with balcony), Split"},{"date":"2026-10-05","day_label":"Day 5","city":"克罗地亚斯普利特 → 杜布罗夫尼克","city_en":"Split → Dubrovnik, Croatia","summary":"自驾沿克罗地亚8号沿海公路南下杜布罗夫尼克","activities":[{"time":"10:00","title":"斯普利特Sixt门店取车","type":"car","location_query":"Sixt Split Poljicka ulica 28b","booking_required":false,"booking_note":"已预订，预订号9737863728"},{"time":"","title":"自驾南下杜布罗夫尼克，沿克罗地亚8号沿海公路(D8)","type":"transport","location_query":"","booking_required":false},{"time":"22:00","title":"杜布罗夫尼克Hotel Rixos门店还车","type":"car","location_query":"Sixt Dubrovnik Hotel Rixos Liechtensteinov Put 3","booking_required":false,"booking_note":"车留车库，钥匙交酒店前台"},{"time":"","title":"抵达杜布罗夫尼克后入住民宿","type":"hotel","location_query":"Dubrovačkog odreda 2 Dubrovnik","booking_required":false},{"time":"","title":"傍晚自由活动","type":"free_time","location_query":"","booking_required":false}],"transportation":"自驾租车 Sixt（10:00斯普利特取车 → 22:00杜布罗夫尼克异地还车），预订号9737863728","accommodation":"Dubrovnik Airbnb (Yellow SeaView Apartment), Dubrovnik"},{"date":"2026-10-06","day_label":"Day 6","city":"克罗地亚杜布罗夫尼克","city_en":"Dubrovnik, Croatia","summary":"游览杜布罗夫尼克老城、城墙，登SRD山观景","activities":[{"time":"","title":"Bosanka Viewpoint","type":"sight","location_query":"Bosanka Viewpoint Dubrovnik","booking_required":false},{"time":"12:00","title":"备选brunch：Gradska kavana Arsenal","type":"restaurant","location_query":"Gradska kavana Arsenal Dubrovnik","booking_required":false,"booking_note":"早午饭方案待定"},{"time":"","title":"游览杜布罗夫尼克老城、城墙漫步","type":"sight","location_query":"Dubrovnik City Walls","booking_required":true,"booking_note":"城墙门票建议提前网上购买，旺季现场排队久"},{"time":"","title":"前往 SRD 山观景，打卡网红餐厅 Panorama","type":"sight","location_query":"Dubrovnik Cable Car Srd Hill Panorama Restaurant","booking_required":true,"booking_note":"缆车票建议提前购买，Panorama餐厅建议提前预约"},{"time":"18:15","title":"晚饭 Prora","type":"restaurant","location_query":"Prora Restaurant Dubrovnik","booking_required":true,"booking_note":"已预约，18:15"}],"transportation":"步行、短途本地交通","accommodation":"Dubrovnik Airbnb (Yellow SeaView Apartment), Dubrovnik"},{"date":"2026-10-07","day_label":"Day 7","city":"克罗地亚杜布罗夫尼克 → 奥地利维也纳","city_en":"Dubrovnik, Croatia → Vienna, Austria","summary":"上午海滩休闲，傍晚搭机飞往维也纳","activities":[{"time":"","title":"早餐：吃大汉堡（待定）","type":"restaurant","location_query":"","booking_required":false,"booking_note":"地点待定"},{"time":"","title":"Banje Beach 海滨休闲","type":"beach","location_query":"Banje Beach Dubrovnik","booking_required":false},{"time":"18:00","title":"出发前往机场（可搭机场大巴）","type":"transport","location_query":"Dubrovnik Airport","booking_required":false},{"time":"","title":"晚餐备选：Konoba Pjatanca 或 Banje Beach Restaurant Lounge & Club","type":"restaurant","location_query":"Konoba Pjatanca Dubrovnik","booking_required":false,"booking_note":"两个备选方案未最终确定"},{"time":"20:35","title":"航班 FR9756 飞往维也纳","type":"flight","location_query":"Dubrovnik Airport","booking_required":false}],"transportation":"市内短途交通 + 机场大巴；国际航班 FR9756 (DBV 20:35 → VIE 22:00)","accommodation":"Moxy Vienna Airport, Vienna"},{"date":"2026-10-08","day_label":"Day 8","city":"奥地利维也纳 → 中国上海","city_en":"Vienna, Austria → Shanghai, China","summary":"上午市区小逛，中午搭乘国际航班返回上海","activities":[{"time":"","title":"上午可能早起去市区小逛","type":"free_time","location_query":"Vienna city center","booking_required":false},{"time":"13:15","title":"维也纳机场搭乘国际航班 OS15 返回上海","type":"flight","location_query":"Vienna International Airport","booking_required":false}],"transportation":"国际航班 OS15 (VIE 13:15 → PVG 次日06:00)","accommodation":"无（行程结束）"}]};
+const STORAGE = {
+  checklist: 'travel-checklist-v1',
+  expenses: 'travel-expenses-v1'
+};
+
+const icons = {flight:'✈️',train:'🚂',ferry:'⛴️',car:'🚗',hotel:'🏨',sight:'📍',restaurant:'🍽️',activity:'✨',beach:'🏖️',transport:'🚌',free_time:'☕'};
+
+function fmtDate(s) {
+  const d = new Date(s.replace(' ','T'));
+  return isNaN(d) ? s : d.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'});
+}
+function maps(q) {
+  if(!q) return '';
+  return `<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}">↗ Google Maps</a>`;
+}
+function showTab(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='checklist') renderChecklist();
+  if(id==='expenses') renderExpenses();
+}
+function firstNext() {
+  const items=[];
+  TRIP.flights.forEach(x=>items.push({kind:'flight',start:x.datetime_start,end:x.datetime_end,title:x.flight_no,from:x.from,to:x.to}));
+  TRIP.trains.forEach(x=>items.push({kind:'train',start:x.datetime_start,end:x.datetime_end,title:'MÁV '+x.train_no,from:{city:x.from.city,code:x.from.station},to:{city:x.to.city,code:x.to.station}}));
+  TRIP.ferries.forEach(x=>items.push({kind:'ferry',start:x.datetime_start,end:x.datetime_end,title:'Split ↔ Hvar',from:{city:'Split',code:'SPU'},to:{city:'Hvar',code:'HVR'}}));
+  TRIP.car_rentals.forEach(x=>items.push({kind:'car',start:x.datetime_start,end:x.datetime_end,title:'Sixt 租车',from:{city:'Split',code:'Split'},to:{city:'Dubrovnik',code:'Dubrovnik'}}));
+  items.sort((a,b)=>new Date(a.start)-new Date(b.start));
+  const now=new Date();
+  return items.find(x=>new Date(x.end||x.start)>now) || items[items.length-1];
+}
+function countdownText(target) {
+  const diff = new Date(target)-new Date();
+  if(diff<=0) return '正在进行 / 即将开始';
+  const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000);
+  return `${d}天 ${h}小时 ${m}分`;
+}
+function transitCard(x) {
+  const f=x.from||{}, t=x.to||{};
+  return `<article class="card transit">
+    <div class="transit-top"><span>${icons[x.kind]||'•'} ${x.title}</span><span>${fmtDate(x.start)}</span></div>
+    <div class="route">
+      <div><div class="code">${f.code||f.station||'—'}</div><div class="city">${f.city||''}</div></div>
+      <div class="arrow">→</div>
+      <div style="text-align:right"><div class="code">${t.code||t.station||'—'}</div><div class="city">${t.city||''}</div></div>
+    </div>
+    <div class="transit-time"><span>${x.start?.slice(11,16)||''}</span><span>${x.end?.slice(11,16)||''}</span></div>
+    <div class="meta">${x.kind==='flight'?'交通航班':x.kind==='train'?'夜间列车':x.kind==='ferry'?'往返渡轮':'租车行程'} · 详情见行程页</div>
+  </article>`;
+}
+function renderHome() {
+  const next=firstNext();
+  const cards=TRIP.flights.map(f=>({...f,kind:'flight',title:f.flight_no}))
+    .concat(TRIP.trains.map(f=>({...f,kind:'train',title:'MÁV '+f.train_no})))
+    .concat(TRIP.ferries.map(f=>({...f,kind:'ferry',title:'Split ↔ Hvar'})))
+    .concat(TRIP.car_rentals.map(f=>({...f,kind:'car',title:'Sixt 租车'})));
+  document.getElementById('home').innerHTML=`
+    <section class="hero">
+      <div class="kicker">TRAVEL PLAN · 2026</div>
+      <h1>匈牙利 · 克罗地亚 · 奥地利</h1>
+      <p>2026.09.30 — 2026.10.08 · 8天8晚</p>
+      <div class="hero-stats"><span class="pill">上海 → 布达佩斯</span><span class="pill">斯普利特 → 杜布罗夫尼克</span><span class="pill">维也纳 → 上海</span></div>
+    </section>
+    <div class="section-head"><h2>✈️ 行程航班</h2><span>${cards.length} 段交通</span></div>
+    <div class="card countdown"><small>下一程 · 自动按时间判断</small><strong id="nextCountdown">${countdownText(next.start)}</strong><span class="muted">${icons[next.kind]||''} ${next.title} · ${next.from.city} → ${next.to.city}</span></div>
+    <div class="carousel">${cards.map(transitCard).join('')}</div>
+    <div class="dots">● ○ ○ ○</div>
+    <div class="section-head"><h2>快捷入口</h2></div>
+    <div class="quick-grid">
+      <button class="quick" onclick="showTab('itinerary')"><b>🗓 今日行程</b><small>按日期查看活动与购票提醒</small></button>
+      <button class="quick" onclick="showTab('driving')"><b>🚗 自驾提醒</b><small>取还车、检查项与费用</small></button>
+      <button class="quick" onclick="showTab('checklist')"><b>✓ 打包清单</b><small>仅自己可见，本地保存</small></button>
+      <button class="quick" onclick="showTab('expenses')"><b>¥ 记一笔</b><small>共享账本与 AA 结算</small></button>
+    </div>
+    <div class="notice">⚠️ 页面已隐藏护照号、租车安全码等敏感信息，适合用于朋友分享。原始预订凭证请另行保存。</div>
+  `;
+  setInterval(()=>{const el=document.getElementById('nextCountdown');if(el)el.textContent=countdownText(next.start)},30000);
+}
+let selectedDay = 0;
+function renderItinerary() {
+  const days=TRIP.daily_itinerary;
+  const d=days[selectedDay];
+  document.getElementById('itinerary').innerHTML=`
+    <div class="section-head"><h2>🗓 行程</h2><span>Day 0 — Day 8</span></div>
+    <div class="date-strip">${days.map((x,i)=>`<button class="day-btn ${i===selectedDay?'active':''}" onclick="selectDay(${i})"><b>${x.day_label}</b><small>${x.date.slice(5).replace('-','/')}</small></button>`).join('')}</div>
+    <div class="route-line"></div>
+    <div class="card" style="padding:16px">
+      <div class="muted">${d.city_en}</div>
+      <h2 style="margin:5px 0 7px">${d.city}</h2>
+      <div class="muted">${d.summary}</div>
+      <div style="margin-top:12px">${hotelForDay(d.date)}</div>
+      <button class="primary full" onclick="openDay(${selectedDay})">查看当天详情</button>
+    </div>
+    <div class="section-head"><h2>⚠️ 提前预约 / 购票</h2></div>
+    <div class="list">${bookingList(days).slice(0,5).map(x=>`<div class="item"><span>${icons[x.type]||'🎟️'}</span><div class="grow"><b>${x.title}</b><div class="muted">${x.date} · ${x.note||'建议提前安排'}</div></div></div>`).join('') || '<div class="empty">暂无</div>'}</div>
+  `;
+}
+function hotelForDay(date) {
+  const h=TRIP.accommodations.find(x=>date>=x.check_in.slice(0,10)&&date<x.check_out.slice(0,10));
+  if(!h) return '<div class="hotel-mini">🏨 当晚：无固定住宿（交通途中/行程结束）</div>';
+  return `<div class="hotel-mini">🏨 ${h.name} · ${h.city}<br><span class="muted">${h.address}</span></div>`;
+}
+function bookingList(days) {
+  const arr=[]; days.forEach(d=>d.activities.forEach(a=>{if(a.booking_required)arr.push({...a,date:d.date,note:a.booking_note})})); return arr;
+}
+function selectDay(i) { selectedDay=i; renderItinerary(); }
+function openDay(i) {
+  const d=TRIP.daily_itinerary[i];
+  document.getElementById('sheetContent').innerHTML=`
+    <div class="sheet-head"><div><div class="muted">${d.day_label} · ${d.date}</div><h2 style="margin:5px 0">${d.city}</h2><div class="muted">${d.summary}</div></div><button class="close" onclick="closeSheet()">×</button></div>
+    <div style="margin-top:12px">${hotelForDay(d.date)}</div>
+    <div class="timeline">${d.activities.map(a=>`
+      <div class="event">
+        <div class="event-time">${a.time||'时间待定'} · ${icons[a.type]||'•'}</div>
+        <h3>${a.title}</h3>
+        ${a.booking_required?`<span class="tag">🎟️ 建议提前购票 / 预约 · ${a.booking_note||''}</span>`:''}
+        ${maps(a.location_query)}
+      </div>`).join('')}</div>`;
+  document.getElementById('sheet').classList.add('open');
+}
+function closeSheet() {document.getElementById('sheet').classList.remove('open')}
+function renderDriving() {
+ const c=TRIP.car_rentals[0];
+ const costs=c.price_breakdown;
+ const pickup=`${c.pickup.date} ${c.pickup.time}`;
+ const drop=`${c.dropoff.date} ${c.dropoff.time}`;
+ const checks1=['车辆外观检查（划痕拍照）','油量/电量记录','随车文件确认（行驶证、保险单）','确认 GPS / 儿童座椅等附加设备（如有）'];
+ const checks2=['车内清洁、个人物品清点','油量是否符合还车政策','钥匙 + 文件交还位置确认','拍照留存车况'];
+ document.getElementById('driving').innerHTML=`
+   <div class="section-head"><h2>🚗 自驾租车</h2><span>1 天</span></div>
+   <div class="card drive-card">
+    <div class="muted">Sixt · CDAR · 示例车型 VW Golf</div>
+    <div style="margin-top:14px" class="drive-route">
+      <div class="track"></div><div>
+        <b>取车 · ${pickup}</b><div class="muted">${c.pickup.station}</div>${maps(c.pickup.station)}
+        <div style="height:38px"></div>
+        <b>还车 · ${drop}</b><div class="muted">${c.dropoff.station}</div>${maps(c.dropoff.station)}
+      </div>
+    </div>
+    <div class="notice">沿克罗地亚 8 号沿海公路（D8）南下，异地还车。还车点为 Rixos Libertas 酒店车库，钥匙按预订说明交酒店前台。</div>
+   </div>
+   <div class="section-head"><h2>取车检查</h2></div>
+   <div class="card check-group">${checks1.map((x,i)=>`<label class="check-row"><input type="checkbox" data-drive="p${i}"><span>${x}</span></label>`).join('')}</div>
+   <div class="section-head"><h2>还车检查</h2></div>
+   <div class="card check-group">${checks2.map((x,i)=>`<label class="check-row"><input type="checkbox" data-drive="d${i}"><span>${x}</span></label>`).join('')}</div>
+   <div class="section-head"><h2>驾驶提醒</h2></div>
+   <div class="card check-group">
+     <div class="muted" style="line-height:1.8">靠右行驶；页面中的限速/收费信息仅作行程提醒，实际以当地道路标识与官方规则为准。老城区停车与通行限制需现场确认。国际驾照/驾照要求请以租车公司及当地法规为准。</div>
+   </div>
+   <div class="section-head"><h2>费用明细</h2></div>
+   <details class="card collapsible"><summary>展开查看租车费用</summary><div class="costs">
+     <div class="cost-row"><span>租车费用</span><b>€${costs.rental_days_eur.toFixed(2)}</b></div>
+     <div class="cost-row"><span>异地还车费</span><b>€${costs.one_way_fee_eur.toFixed(2)}</b></div>
+     <div class="cost-row"><span>Road tax</span><b>€${costs.road_tax_rfl_eur.toFixed(2)}</b></div>
+     <div class="cost-row"><span>全险保障</span><b>€${costs.all_inclusive_protection_eur.toFixed(2)}</b></div>
+     <div class="cost-row"><span>当地税</span><b>€${costs.local_tax_eur.toFixed(2)}</b></div>
+     <div class="cost-row"><span>预付总额</span><b>€${c.prepaid_amount_eur.toFixed(2)}</b></div>
+   </div></details>`;
+}
+function getChecklist() {
+ try { return JSON.parse(localStorage.getItem(STORAGE.checklist)) || [
+  {text:'护照',done:false},{text:'充电器',done:false},{text:'转换插头',done:false},
+  {text:'银行卡 / 现金',done:false},{text:'常用药品',done:false},{text:'耳机',done:false}
+ ]; } catch(e) { return []; }
+}
+function saveChecklist(x) {localStorage.setItem(STORAGE.checklist,JSON.stringify(x))}
+function renderChecklist() {
+ const items=getChecklist();
+ document.getElementById('checklist').innerHTML=`
+  <div class="section-head"><h2>✓ 打包清单</h2><span>仅自己可见</span></div>
+  <div class="card form"><div style="display:flex;gap:8px"><input id="newItem" placeholder="+ 添加物品" onkeydown="if(event.key==='Enter')addItem()"><button class="primary" onclick="addItem()">添加</button></div></div>
+  <div class="list">${items.map((x,i)=>`<div class="item ${x.done?'done':''}"><input type="checkbox" ${x.done?'checked':''} onchange="toggleItem(${i})"><span class="grow">${x.text}</span><button class="del" onclick="deleteItem(${i})">×</button></div>`).join('') || '<div class="empty">还没有物品</div>'}</div>
+  <div class="notice">本清单使用当前设备的本地持久化存储，不会和同行人的清单混在一起。</div>`;
+}
+function addItem() {const el=document.getElementById('newItem'); const text=el.value.trim(); if(!text)return; const a=getChecklist();a.push({text,done:false});saveChecklist(a);renderChecklist();setTimeout(()=>document.getElementById('newItem')?.focus(),0)}
+function toggleItem(i) {const a=getChecklist();a[i].done=!a[i].done;saveChecklist(a);renderChecklist()}
+function deleteItem(i) {const a=getChecklist();a.splice(i,1);saveChecklist(a);renderChecklist()}
+
+function getExpenses() {try{return JSON.parse(localStorage.getItem(STORAGE.expenses))||[]}catch(e){return[]}}
+function saveExpenses(x){localStorage.setItem(STORAGE.expenses,JSON.stringify(x))}
+let rates={CNY:1,EUR:7.85,HUF:0.021};
+let rateAt='示例汇率';
+async function refreshRates(){
+  try {
+    const r=await fetch('https://open.er-api.com/v6/latest/CNY');
+    const j=await r.json();
+    if(j?.rates){rates={CNY:1,EUR:1/j.rates.CNY* j.rates.EUR,HUF:1/j.rates.CNY*j.rates.HUF};rateAt=new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});renderExpenses();}
+  } catch(e) {rateAt='获取失败，当前使用兜底汇率';}
+}
+function renderExpenses(){
+ const ex=getExpenses(); const total=ex.reduce((s,x)=>s+(x.amount_cny_snapshot||0),0);
+ const balances={'NING LI':0,'LEQI WEI':0};
+ ex.forEach(x=>{if(x.split_type==='even_split'){const half=x.amount_cny_snapshot/2;balances[x.payer]+=half;Object.keys(balances).filter(k=>k!==x.payer).forEach(k=>balances[k]-=half)}});
+ const settle=balances['NING LI']>0?`NING LI 应收 LEQI WEI ¥${balances['NING LI'].toFixed(0)}`:balances['LEQI WEI']>0?`LEQI WEI 应收 NING LI ¥${balances['LEQI WEI'].toFixed(0)}`:'目前无需结算';
+ document.getElementById('expenses').innerHTML=`
+  <div class="section-head"><h2>¥ 账本</h2><span>同行人共享</span></div>
+  <div class="notice">本页记账内容设计为 shared=true：同行人打开同一个旅行链接时应看到同一份账本。当前这个静态原型先用浏览器本地存储演示；接入后端后即可改成真正跨设备同步。</div>
+  <div class="summary-grid" style="margin-top:12px"><div class="metric"><small>旅行总花费（人民币）</small><b>¥${total.toFixed(2)}</b></div><div class="metric"><small>AA 结算</small><b style="font-size:14px">${settle}</b></div></div>
+  <div class="section-head"><h2>+ 记一笔</h2><span>记账时保存汇率快照</span></div>
+  <div class="card form">
+   <div class="row"><input id="eAmount" type="number" step="0.01" placeholder="金额"><select id="eCurrency"><option>EUR</option><option>CNY</option><option>HUF</option></select></div>
+   <div class="row" style="margin-top:10px"><select id="eCategory"><option>交通</option><option>住宿</option><option>餐饮</option><option>门票</option><option>购物</option><option>其他</option></select><select id="ePayer"><option>NING LI</option><option>LEQI WEI</option></select></div>
+   <div class="row" style="margin-top:10px"><select id="eSplit"><option value="even_split">两人平摊</option><option value="record_only">仅记录不分摊</option></select><input id="eNote" placeholder="备注"></div>
+   <button class="primary full" onclick="addExpense()">保存并锁定汇率快照</button>
+  </div>
+  <div class="section-head"><h2>实时汇率</h2><button class="secondary" onclick="refreshRates()">↻ 刷新</button></div>
+  <div class="card form"><div><b>1 EUR ≈ ¥${rates.EUR.toFixed(4)}</b> · 1 HUF ≈ ¥${rates.HUF.toFixed(4)}</div><div class="muted" style="margin-top:5px">更新于 ${rateAt} · 临时换算工具与历史账本快照相互独立</div>
+  <div class="row" style="margin-top:10px"><input id="convertAmount" type="number" placeholder="金额" oninput="convertNow()"><select id="convertCurrency" onchange="convertNow()"><option>EUR</option><option>HUF</option><option>CNY</option></select></div><div id="convertOut" style="margin-top:10px;font-weight:700">—</div></div>
+  <div class="section-head"><h2>支出记录</h2><span>${ex.length} 笔</span></div>
+  <div class="list">${ex.slice().reverse().map((x,i)=>`<div class="card expense"><div class="exp-top"><span>${x.category} · ${x.payer}</span><span>${x.currency} ${x.amount.toFixed(2)}</span></div><div class="exp-sub">¥${x.amount_cny_snapshot.toFixed(2)} · 记账汇率 1 ${x.currency}≈¥${x.exchange_rate_snapshot.toFixed(4)}<br>${x.split_type==='even_split'?'两人平摊':'仅记录'} · ${x.note||'无备注'}</div></div>`).join('') || '<div class="empty">暂无支出，先记第一笔吧</div>'}</div>`;
+}
+function addExpense(){
+ const amount=Number(document.getElementById('eAmount').value),currency=document.getElementById('eCurrency').value;
+ if(!amount||amount<=0)return;
+ const ex=getExpenses(), rate=rates[currency]||1;
+ ex.push({id:'expense-'+Date.now(),amount,currency,exchange_rate_snapshot:rate,amount_cny_snapshot:amount*rate,rate_fetched_at:new Date().toISOString(),category:document.getElementById('eCategory').value,payer:document.getElementById('ePayer').value,split_type:document.getElementById('eSplit').value,split_between:['NING LI','LEQI WEI'],note:document.getElementById('eNote').value,date:new Date().toISOString().slice(0,10)});
+ saveExpenses(ex);renderExpenses();
+}
+function convertNow(){
+ const amount=Number(document.getElementById('convertAmount')?.value||0), c=document.getElementById('convertCurrency')?.value||'EUR';
+ const cny=amount*(rates[c]||1); const out=document.getElementById('convertOut'); if(out)out.textContent=amount?`≈ ¥${cny.toFixed(2)} CNY（当前实时汇率）`:'—';
+}
+
+renderHome(); renderItinerary(); renderDriving(); renderChecklist(); renderExpenses();
+document.querySelector('.nav button[data-tab="home"]').classList.add('active');
+</script>
+</body>
+</html>
