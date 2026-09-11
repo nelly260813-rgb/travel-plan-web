@@ -1,4 +1,4 @@
-# 旅行计划网页
+# 旅行计划网址
 
 这是一个 Mobile First 的单页静态网页原型，依据：
 - `travel-data.json`
@@ -28,3 +28,5 @@
 - 加入真实目的地背景图
 - 加入 PWA / 离线缓存
 - 增加真正的分享链接与权限控制
+
+## GitHub Pages deployment
