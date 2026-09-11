@@ -191,10 +191,28 @@ function transitCard(x) {
 }
 function renderHome() {
   const next=firstNext();
-  const cards=TRIP.flights.map(f=>({...f,kind:'flight',title:f.flight_no}))
-    .concat(TRIP.trains.map(f=>({...f,kind:'train',title:'MÁV '+f.train_no})))
-    .concat(TRIP.ferries.map(f=>({...f,kind:'ferry',title:'Split ↔ Hvar'})))
-    .concat(TRIP.car_rentals.map(f=>({...f,kind:'car',title:'Sixt 租车'})));
+  // 统一交通数据字段，避免 transitCard 读取不到 start/end
+  const cards=TRIP.flights.map(f=>({
+      ...f, kind:'flight', title:f.flight_no,
+      start:f.datetime_start, end:f.datetime_end
+    }))
+    .concat(TRIP.trains.map(f=>({
+      ...f, kind:'train', title:'MÁV '+f.train_no,
+      start:f.datetime_start, end:f.datetime_end
+    })))
+    .concat(TRIP.ferries.map(f=>({
+      ...f, kind:'ferry', title:'Split ↔ Hvar',
+      start:f.datetime_start, end:f.datetime_end,
+      from:{city:'Split',code:'SPU'},
+      to:{city:'Hvar',code:'HVR'}
+    })))
+    .concat(TRIP.car_rentals.map(f=>({
+      ...f, kind:'car', title:'Sixt 租车',
+      start:f.datetime_start, end:f.datetime_end,
+      from:{city:'Split',code:'Split'},
+      to:{city:'Dubrovnik',code:'Dubrovnik'}
+    })));
+  if(!next) return;
   document.getElementById('home').innerHTML=`
     <section class="hero">
       <div class="kicker">TRAVEL PLAN · 2026</div>
